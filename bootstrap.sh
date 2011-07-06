@@ -11,10 +11,10 @@ mkdir ~/.backupdotfiles
 cp ~/.bashrc ~/.backupdotfiles/
 cp ~/.bash_logout ~/.backupdotfiles/
 cp ~/.vimrc ~/.backupdotfiles/
-cp ~/.vim ~/.backupdotfiles/
+cp -R ~/.vim ~/.backupdotfiles/
 cp ~/.tmux.conf ~/.backupdotfiles/
 cp ~/.gitconfig ~/.backupdotfiles/
-cp ~/.bazaar ~/.backupdotfiles/
+cp -R ~/.bazaar ~/.backupdotfiles/
 
 rm -f ~/.bashrc
 rm -f ~/.bash_logout
@@ -26,14 +26,29 @@ rm -rf ~/.bazaar
 
 echo "Symlinking new dot files"
 
-ln -s .bashrc ~/
-ln -s .bash_logout ~/
-ln -s .vimrc ~/
-ln -s .vim ~/
-ln -s .tmux.conf ~/
-ln -s .gitconfig ~/
-ln -s .bazaar ~/
+# vim
+ln -s $HOME/.dotfiles/vim $HOME/.vim
+ln -s $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
+
+# bash
+ln -s $HOME/.dotfiles/bash/bashrc $HOME/.bashrc
+ln -s $HOME/.dotfiles/bash/bash_logout $HOME/.bash_logout
+
+# tmux
+ln -s $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
+
+# git
+ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
+
+# bazaar
+ln -s $HOME/.dotfiles/bazaar $HOME/.bazaar
+
+echo "Creating vim tmp directories"
+
+mkdir vim/tmp
+mkdir vim/tmp/backup
+mkdir vim/tmp/swap
 
 echo "Installing vim plugins using vundle"
 
-vim -u .vim/bundles.vim +BundleInstall +q
+vim -u $HOME/.vim/bundles.vim +BundleInstall +q
