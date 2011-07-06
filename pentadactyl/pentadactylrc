@@ -1,0 +1,4 @@
+set go+=T
+map J gt
+map K gT
+
