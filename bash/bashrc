@@ -149,3 +149,4 @@ case "$TERM" in
         ;;
 esac
 
+PATH=$PATH:$HOME/.bin
