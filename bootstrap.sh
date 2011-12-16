@@ -58,3 +58,5 @@ mkdir vim/tmp/swap
 echo "Installing vim plugins using vundle"
 
 vim -u $HOME/.vim/bundles.vim +BundleInstall +q
+
+ln -s $HOME/.dotfiles/lein/user.clj $HOME/.lein/user.clj

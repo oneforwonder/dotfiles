@@ -152,9 +152,13 @@ case "$TERM" in
         ;;
 esac
 
+<<<<<<< HEAD
 #--------------------------------------
 # etc
 # -------------------------------------
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+=======
+PATH=$PATH:$HOME/.bin
+>>>>>>> 4d95cbfc028831fd617b24cfcca13325856a177d
