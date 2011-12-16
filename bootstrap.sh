@@ -12,6 +12,7 @@ cp ~/.bashrc ~/.backupdotfiles/
 cp ~/.bash_logout ~/.backupdotfiles/
 cp ~/.vimrc ~/.backupdotfiles/
 cp -R ~/.vim ~/.backupdotfiles/
+cp -R ~/.emacs.d ~/.backupdotfiles/
 cp ~/.tmux.conf ~/.backupdotfiles/
 cp ~/.gitconfig ~/.backupdotfiles/
 cp -R ~/.bazaar ~/.backupdotfiles/
@@ -20,6 +21,7 @@ rm -f ~/.bashrc
 rm -f ~/.bash_logout
 rm -f ~/.vimrc
 rm -rf ~/.vim
+rm -f ~/.emacs.d/init.el
 rm -f ~/.tmux.conf
 rm -f ~/.gitconfig
 rm -rf ~/.bazaar
@@ -29,6 +31,10 @@ echo "Symlinking new dot files"
 # vim
 ln -s $HOME/.dotfiles/vim $HOME/.vim
 ln -s $HOME/.dotfiles/vim/vimrc $HOME/.vimrc
+
+# emacs
+ln -s $HOME/.dotfiles/emacs/init.el $HOME/.emacs.d/init.el
+ln -s $HOME/.dotfiles/emacs/rjn-theme.el $HOME/.emacs.d/rjn-theme.el
 
 # bash
 ln -s $HOME/.dotfiles/bash/bashrc $HOME/.bashrc

@@ -23,13 +23,13 @@ Bundle 'xolox/vim-reload'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
-
+Bundle 'rjn945/python.vim'
 Bundle 'honza/snipmate-snippets'
 Bundle 'wincent/Command-T'
 Bundle 'ShowMarks7'
 Bundle 'YankRing.vim'
 Bundle 'taglist.vim'
 Bundle 'slimv.vim'
-Bundle 'VimClojure'
+"Bundle 'VimClojure'
 
 filetype plugin indent on

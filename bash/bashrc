@@ -134,12 +134,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias ack='ack-grep'
+
 
 #--------------------------------------
 # Environment Variables
 # -------------------------------------
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/vim
+export PATH=$PATH:$HOME/.bin
 
 case "$TERM" in
     screen*)
@@ -148,4 +151,10 @@ case "$TERM" in
         export TERM=xterm-256color
         ;;
 esac
+
+#--------------------------------------
+# etc
+# -------------------------------------
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
