@@ -183,18 +183,12 @@ let python_highlight_space_errors = 0
 
 " Connect SLIMV to Leiningen's Swank server
 " This commands assumes tmux is installed and running.
-" TODO: Check that these assumptions are true and run a different command if
-" not.
 
 if empty($TMUX)
   let g:slimv_swank_clojure = '! xterm -e lein swank &' 
-  "let g:slimv_swank_clojure = '! tmux new-window -d -n swank -t :9 "lein swank"'
 else
   let g:slimv_swank_clojure = '! tmux new-window -d -n swank -t :9 "lein swank"'
 endif
-
-" let g:slimv_swank_clojure = '! tmux new-window -d -n swank -t :9 "swank-clojure"'
-" let g:slimv_swank_clojure = '! xterm -e swank-clojure &' 
 
 " let g:slimv_repl_syntax = 1
 let g:slimv_repl_open = 1
