@@ -20,8 +20,8 @@ mkdir ~/Images
 # Install and set up virtualenv
 wget -O ~/.bin/virtualenv https://bitbucket.org/ianb/virtualenv/raw/tip/virtualenv.py
 chmod 777 ~/.bin/virtualenv
-mkdir .venv
-~/virtualenv --no-site-packages ~/.venv/base
+mkdir $HOME/.venv
+virtualenv --no-site-packages $HOME/.venv/base
 
 # Install RVM, Ruby and Rails
 curl -L get.rvm.io | bash -s stable --rails

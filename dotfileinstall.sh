@@ -9,6 +9,8 @@ echo "Copying current dot files to ~/.backupdotfiles"
 mkdir ~/.backupdotfiles
 
 cp ~/.bashrc ~/.backupdotfiles/
+cp ~/.bash_login ~/.backupdotfiles/
+cp ~/.bash_profile ~/.backupdotfiles/
 cp ~/.bash_logout ~/.backupdotfiles/
 cp ~/.vimrc ~/.backupdotfiles/
 cp -R ~/.vim ~/.backupdotfiles/
@@ -39,6 +41,8 @@ ln -s $HOME/.dotfiles/emacs/rjn-theme.el $HOME/.emacs.d/rjn-theme.el
 
 # bash
 ln -s $HOME/.dotfiles/bash/bashrc $HOME/.bashrc
+ln -s $HOME/.dotfiles/bash/bash_login $HOME/.bash_login
+ln -s $HOME/.dotfiles/bash/bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/bash/bash_logout $HOME/.bash_logout
 
 # tmux

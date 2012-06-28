@@ -1,1 +1,3 @@
-source ~/venv/base/bin/activate
+source ~/.venv/base/bin/activate
+
+. ~/.bashrc
