@@ -49,6 +49,9 @@ ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
 # bazaar
 ln -s $HOME/.dotfiles/bazaar $HOME/.bazaar
 
+# lein
+ln -s $HOME/.dotfiles/lein/user.clj $HOME/.lein/user.clj
+
 echo "Creating vim tmp directories"
 
 mkdir vim/tmp
@@ -57,6 +60,10 @@ mkdir vim/tmp/swap
 
 echo "Installing vim plugins using vundle"
 
-vim -u $HOME/.vim/bundles.vim +BundleInstall +q
+git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
+vim -u $HOME/.vim/bundles.vim +BundleInstall +qall
 
-ln -s $HOME/.dotfiles/lein/user.clj $HOME/.lein/user.clj
+echo "Installing Emacs Evil"
+
+mkdir $HOME/.emacs.d/evil
+git clone git://gitorious.org/evil/evil.git $HOME/.emacs.d/evil

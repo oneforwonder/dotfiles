@@ -136,12 +136,16 @@ alias l='ls -CF'
 
 alias ack='ack-grep'
 
+alias tn='tmux new -s'
+
+alias dja='django-admin.py'
+alias djm='python manage.py'
 
 #--------------------------------------
 # Environment Variables
 # -------------------------------------
 
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 export PATH=$PATH:$HOME/.bin
 
 case "$TERM" in
@@ -152,8 +156,20 @@ case "$TERM" in
         ;;
 esac
 
+
 #--------------------------------------
 # RVM
 # -------------------------------------
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
+# -------------------------------------
+# Virtualenv
+# -------------------------------------
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -s "$HOME/.venv/base/bin/activate" ]] && source "$HOME/.venv/base/bin/activate"
+
