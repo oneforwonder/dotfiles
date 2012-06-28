@@ -1,47 +1,11 @@
-# This requires superpowers
-sudo -i
-
-# Install essential software
-apt-get update
-apt-get install aptitude
-aptitude install gcc make
-
-# Connect to Epee
-#echo "sshfs#aclimatt@epee.ccs.ucsb.edu:External /media/epee fuse user,noauto 0 0" >> /etc/fstab
-#mkdir /media/epee
-#chmod 777 /media/epee
-#mount /media/epee
-# Mount Epee automatically on network connect
-# Copy home directory
-#kde-cp /media/epee/Miscellaneous/Backup/rob /home
-
-# Add other package sources
-add-apt-repository ppa:cassou/emacs
-add-apt-repository 'deb http://dl.google.com/linux/deb/ stable non-free main'
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-#echo "deb http://download.virtualbox.org/virtualbox/debian natty contrib" >> /etc/apt/#sources.list	# distro ***
-#kde-cp /home/rob/.rjn/sources.list.d /etc/apt	 # distro ***
-
-# Install the rest of the software
-aptitude remove kopete bluedevil kppp kmousetool kmag synatiks kvkbd rekonq
-aptitude install google-chrome firefox flashplugin-installer 
-aptitude install gimp inkscape digikam 
-aptitude install audacity easytag
-aptitude install unison sshfs tmux curl
-aptitude install git subversion bzr mercurial
-aptitude install zlib1g-dev
-aptitude install vim gvim kdevelop eclipse kdiff3 qtcreator ctags emacs-snapshot
-aptitude upgrade
-#aptitude install virtualbox-4.0 # virtualbox-***
-
-# The rest requires normal powers
-exit
+# This requires normal powers
 
 # Install Leiningen and Clojure
 mkdir ~/.bin
 wget -O ~/.bin/lein "https://raw.github.com/technomancy/leiningen/stable/bin/lein"
 chmod 775 ~/.bin/lein
 ~/.bin/lein
+~/.bin/lein plugin install swank-clojure 1.4.2
 
 # Set up home directory folders
 rmdir ~/Music
@@ -57,12 +21,20 @@ mkdir ~/Images
 wget -O ~/.bin/virtualenv https://bitbucket.org/ianb/virtualenv/raw/tip/virtualenv.py
 chmod 777 ~/.bin/virtualenv
 mkdir .venv
-~/virtualenv ~/.venv/base
+~/virtualenv --no-site-packages ~/.venv/base
 
 # Install RVM, Ruby and Rails
 curl -L get.rvm.io | bash -s stable --rails
 
-# While that's going, do the rest manually...
+# Set up dotfiles
+git clone https://github.com/rjn945/dotfiles.git ~/.dotfiles
+chmod 755 ~/.dotfiles/dotfileinstall.sh
+~/.dotfiles/dotfileinstall.sh
+
+
+# The rest has to be done manually.
+
+echo "This rest is too tricky for me. You do it, human."
 
 # Download Wing IDE from: http://wingware.com/downloads/wingide/
 
@@ -114,10 +86,12 @@ curl -L get.rvm.io | bash -s stable --rails
 # Previous Window:   P
 # Next Window:       N
 # Close Window:      W
-# Maximize Window:   M
+# Maximize Window:   X
+# Minimize Window:   M
 
 # Set up Konsole shortcuts
-# Load konsole shortcuts rc file (includes only Shift-Insert)
+# Remove key shortcuts that conflict with KWin bindings
+# Make sure font used in Deja Vu Sans Mono
 
 # Set up KMenu
 # Favorites: Firefox, Chrome, Writer, Kate, Dolphin, Konsole, Amarok, Adept, System Settings
@@ -128,5 +102,9 @@ curl -L get.rvm.io | bash -s stable --rails
 # No window border
 # Stored in ~/.kde/share/config/kwinrulesrc
 
-# Desktop only:
-# Install graphics drivers through Additional Drivers
+# Install graphics drivers through Additional Drivers, if necessary
+
+# Configure Kate
+# Use vim keybindings
+# Do not save local ~ file backups
+

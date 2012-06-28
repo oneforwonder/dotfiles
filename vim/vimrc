@@ -230,3 +230,7 @@ au FileType html,xhtml,xml so ~/.vim/bundle/html_autoclosetag.vim
 let g:yankring_history_dir = '~/.vim/tmp/'
 nnoremap <silent> <F11> :YRShow<CR>
 
+" Powerline ------------------------------------------------------------------
+
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+let g:Powerline_symbols = 'fancy'
