@@ -222,7 +222,7 @@ hi ShowMarksHLm guifg=#875FFF guibg=#121212 gui=bold ctermfg=99 ctermbg=233 cter
 
 " HTML AutoCloseTag ----------------------------------------------------------
 
-au FileType html,xhtml,xml so ~/.vim/bundle/html_autoclosetag.vim
+au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
 
 
 " YankRing -------------------------------------------------------------------
@@ -234,3 +234,8 @@ nnoremap <silent> <F11> :YRShow<CR>
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 let g:Powerline_symbols = 'fancy'
+
+" CtrlP ----------------------------------------------------------------------
+
+let g:ctrlp_map = '<c-g>'
+
