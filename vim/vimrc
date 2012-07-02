@@ -179,6 +179,7 @@ map ,cd :cd %:p:h<CR>
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
+
 " Clojure --------------------------------------------------------------------
 
 " Connect SLIMV to Leiningen's Swank server
@@ -203,6 +204,15 @@ autocmd FileType html set softtabstop=2
 autocmd FileType html set tabstop=2
 
 
+" HTML AutoCloseTag ----------------------------------------------------------
+
+au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
+
+
+" NERDTree -------------------------------------------------------------------
+
+map <F3> :NERDTreeToggle<CR>  
+
 " SnipMate -------------------------------------------------------------------
 
 let g:snips_trigger_key='<c-space>'
@@ -220,15 +230,11 @@ hi ShowMarksHLo guifg=#00AF5F guibg=#121212 gui=bold ctermfg=35 ctermbg=233 cter
 hi ShowMarksHLm guifg=#875FFF guibg=#121212 gui=bold ctermfg=99 ctermbg=233 cterm=bold
 
 
-" HTML AutoCloseTag ----------------------------------------------------------
-
-au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
-
-
 " YankRing -------------------------------------------------------------------
 
 let g:yankring_history_dir = '~/.vim/tmp/'
 nnoremap <silent> <F11> :YRShow<CR>
+
 
 " Powerline ------------------------------------------------------------------
 
@@ -237,5 +243,5 @@ let g:Powerline_symbols = 'fancy'
 
 " CtrlP ----------------------------------------------------------------------
 
-let g:ctrlp_map = '<c-g>'
-
+map ,f :CtrlP<CR>
+map ,b :CtrlPBuffer<CR>
