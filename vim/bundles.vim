@@ -32,6 +32,7 @@ Bundle 'HTML-AutoCloseTag'
 Bundle 'ShowMarks7'
 Bundle 'YankRing.vim'
 Bundle 'taglist.vim'
+Bundle 'ervandew/supertab'
 Bundle 'slimv.vim'
 "Bundle 'VimClojure'
 

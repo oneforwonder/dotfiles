@@ -37,6 +37,7 @@ set scrolloff=5           " Keep 5 lines above and below cursor to see context
 set wildmenu              " Show menu of options when using tab-completion
 set wildmode=list:longest
 set backspace=indent,eol,start
+set completeopt=longest,menuone
 " set cpoptions+=J
 " set virtualedit=all     " Navigate beyond end of line
 
@@ -134,9 +135,6 @@ set splitright
 
 " Key Mappings ---------------------------------------------------------------
 
-" Go to matching paren with tab
-"map <tab> %
-
 " Go to start and end of line more easily
 noremap S ^
 noremap L $
@@ -176,9 +174,33 @@ map ,cd :cd %:p:h<CR>
 
 " Python --------------------------------------------------------------------
 
+function SetupPythonAndDjango()
+    "python activate_this = '/home/rob/.venv/base/bin/activate_this.py'
+    "python execfile(activate_this, dict(__file__=activate_this))
+python << EOF
+import os.path
+import sys
+import vim
+
+project_base_dir = os.environ['VIRTUAL_ENV']
+
+sys.path.insert(0, project_base_dir)
+
+activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
+
+# SET THIS MANUALLY
+# =================
+DJANGO_SETTINGS_MODULE='fb.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = DJANGO_SETTINGS_MODULE
+EOF
+endfunction
+
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python call SetupPythonAndDjango()
 
 " Clojure --------------------------------------------------------------------
 
@@ -245,3 +267,9 @@ let g:Powerline_symbols = 'fancy'
 
 map ,f :CtrlP<CR>
 map ,b :CtrlPBuffer<CR>
+
+
+" SuperTab -------------------------------------------------------------------
+"
+let g:SuperTabDefaultCompletionType = "context"
+
