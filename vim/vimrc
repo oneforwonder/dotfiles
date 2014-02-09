@@ -235,10 +235,6 @@ au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_auto
 
 map <F3> :NERDTreeToggle<CR>  
 
-" SnipMate -------------------------------------------------------------------
-
-let g:snips_trigger_key='<c-space>'
-
 
 " Showmarks ------------------------------------------------------------------
 
