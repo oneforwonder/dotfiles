@@ -1,4 +1,4 @@
-" Vim config file
+
 "
 " By: Robert Nagle <rjn945@gmail.com>
 "
@@ -74,9 +74,9 @@ au VimResized * exe "normal! \<c-w>="
 
 " Tabs, spaces, wrapping -----------------------------------------------------
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab           " Pressing tab inserts spaces
 set autoindent          " Keep indentation from previous line on new line
 set smarttab            " Tab/backspace by units of shiftwidth at b.o.l.
@@ -202,21 +202,20 @@ let python_highlight_space_errors = 0
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python call SetupPythonAndDjango()
 
+
 " Clojure --------------------------------------------------------------------
 
-" Connect SLIMV to Leiningen's Swank server
-" This commands assumes tmux is installed and running.
+let g:paredit_mode = 1
 
-if empty($TMUX)
-  let g:slimv_swank_clojure = '! xterm -e lein swank &' 
-else
-  let g:slimv_swank_clojure = '! tmux new-window -d -n swank -t :9 "lein swank"'
-endif
+nnoremap <leader>ee :Eval<CR>
+nnoremap <leader>eb :%Eval<CR>
 
-" let g:slimv_repl_syntax = 1
-let g:slimv_repl_open = 1
-let g:slimv_repl_split = 2
-let g:slimv_keybindings = 2
+
+" Ruby -----------------------------------------------------------------------
+
+autocmd FileType ruby set shiftwidth=2
+autocmd FileType ruby set softtabstop=2
+autocmd FileType ruby set tabstop=2
 
 
 " HTML -----------------------------------------------------------------------
@@ -234,6 +233,7 @@ au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_auto
 " NERDTree -------------------------------------------------------------------
 
 map <F3> :NERDTreeToggle<CR>  
+
 
 " SnipMate -------------------------------------------------------------------
 
@@ -262,6 +262,8 @@ nnoremap <silent> <F11> :YRShow<CR>
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 let g:Powerline_symbols = 'fancy'
+python from powerline.bindings.vim import source_plugin; source_plugin()
+
 
 " CtrlP ----------------------------------------------------------------------
 

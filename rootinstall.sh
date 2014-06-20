@@ -17,6 +17,6 @@ aptitude install gimp inkscape digikam
 aptitude install audacity easytag
 aptitude install unison sshfs tmux curl
 aptitude install git subversion bzr mercurial
-aptitude install zlib1g-dev
+aptitude install zlib1g-dev trash-cli
 aptitude install vim gvim kdevelop eclipse kdiff3 qtcreator exuberant-ctags emacs-snapshot python-fontforge
 aptitude upgrade

@@ -143,6 +143,15 @@ alias tn='tmux new -s'
 alias dja='django-admin.py'
 alias djm='python manage.py'
 
+alias gdc="git diff --color"
+
+alias be='bundle exec'
+
+alias ngrokb='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname bit.ngrok.com'
+alias ngrok='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x'
+
+alias sshdib='ssh dev.internal.bitmatica.com'
+
 #--------------------------------------
 # Environment Variables
 # -------------------------------------

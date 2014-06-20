@@ -13,7 +13,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -26,14 +26,17 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'rjn945/python.vim'
 Bundle 'honza/snipmate-snippets'
-"Bundle 'wincent/Command-T'
 Bundle 'kien/ctrlp.vim'
 Bundle 'HTML-AutoCloseTag'
 Bundle 'ShowMarks7'
 Bundle 'YankRing.vim'
 Bundle 'taglist.vim'
 Bundle 'ervandew/supertab'
-Bundle 'slimv.vim'
+Bundle 'paredit.vim'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
+"Bundle 'slimv.vim'
 "Bundle 'VimClojure'
 
 filetype plugin indent on
