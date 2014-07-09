@@ -12,27 +12,41 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" vundle itself
 Bundle 'gmarik/vundle'
+
+" essentials
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-fireplace'
+Bundle 'scrooloose/nerdcommenter'
+
+" less essential but used
+Bundle 'xolox/vim-reload'
+Bundle 'xolox/vim-misc'
+
+" use someday?
+Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-reload'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'rjn945/python.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'HTML-AutoCloseTag'
 Bundle 'ShowMarks7'
 Bundle 'YankRing.vim'
-Bundle 'taglist.vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'ervandew/supertab'
+Bundle 'taglist.vim'
+
+" dependency satisifying
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+
+" Python
+Bundle 'rjn945/python.vim'
+
+" HTML
+Bundle 'HTML-AutoCloseTag'
+
+" Clojure
 Bundle 'paredit.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
