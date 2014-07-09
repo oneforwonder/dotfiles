@@ -1,3 +1,7 @@
 [user]
 	name = Rob Nagle
 	email = rjn945@gmail.com
+
+[color]
+  diff = auto
+  interactive = auto

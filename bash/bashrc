@@ -139,15 +139,21 @@ alias trash='trash-put'
 alias ack='ack-grep'
 
 alias tn='tmux new -s'
+alias ta='tmux attach'
+alias tat='tmux attach -t'
+alias td='tmux detach'
 
 alias dja='django-admin.py'
 alias djm='python manage.py'
 
 alias gdc="git diff --color"
+alias gca="git commit -a"
+alias gpp="git pull; git push"
 
 alias be='bundle exec'
 
 alias ngrokb='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname bit.ngrok.com'
+alias ngrokh='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname'
 alias ngrok='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x'
 
 alias sshdib='ssh dev.internal.bitmatica.com'

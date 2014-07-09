@@ -262,6 +262,7 @@ python from powerline.bindings.vim import source_plugin; source_plugin()
 
 " CtrlP ----------------------------------------------------------------------
 
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git'
 map ,f :CtrlP<CR>
 map ,b :CtrlPBuffer<CR>
 
