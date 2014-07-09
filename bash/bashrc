@@ -134,6 +134,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias c='clear'
+
 alias trash='trash-put'
 
 alias ack='ack-grep'

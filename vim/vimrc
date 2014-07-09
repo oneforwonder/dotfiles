@@ -257,7 +257,7 @@ nnoremap <silent> <F11> :YRShow<CR>
 
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 let g:Powerline_symbols = 'fancy'
-python from powerline.bindings.vim import source_plugin; source_plugin()
+"python from powerline.bindings.vim import source_plugin; source_plugin()
 
 
 " CtrlP ----------------------------------------------------------------------
