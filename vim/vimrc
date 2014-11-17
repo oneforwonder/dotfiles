@@ -171,6 +171,8 @@ imap hh <Esc>
 " Easily change current directory
 map ,cd :cd %:p:h<CR>
 
+" Replace all instances of selected string
+vnoremap <C-r> "hy:%s/<C-r>h//cg<left><left><left>
 
 " Python --------------------------------------------------------------------
 
