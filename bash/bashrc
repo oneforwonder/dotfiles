@@ -194,3 +194,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.venv/base/bin/activate" ]] && source "$HOME/.venv/base/bin/activate"
 
+
+# -------------------------------------
+# Git autocomplete
+# -------------------------------------
+
+test -f ~/.dotfiles/git/.git-completion.bash && . $_
+
