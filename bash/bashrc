@@ -138,7 +138,7 @@ alias c='clear'
 
 alias trash='trash-put'
 
-alias ack='ack-grep'
+alias ack='clear; ack-grep'
 
 alias tn='tmux new -s'
 alias ta='tmux attach'
@@ -148,7 +148,9 @@ alias td='tmux detach'
 alias dja='django-admin.py'
 alias djm='python manage.py'
 
-alias gdc="git diff --color"
+alias gd="clear; git diff; git status"
+alias gdc="clear; git diff --cached; git status"
+alias gst="clear; git status"
 alias gca="git commit -a"
 alias gpp="git pull; git push"
 
