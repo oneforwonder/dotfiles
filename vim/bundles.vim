@@ -51,7 +51,5 @@ Bundle 'paredit.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
-"Bundle 'slimv.vim'
-"Bundle 'VimClojure'
 
 filetype plugin indent on
