@@ -5,3 +5,4 @@
 [color]
   diff = auto
   interactive = auto
+  status = auto
