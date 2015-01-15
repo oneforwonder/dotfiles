@@ -18,6 +18,7 @@ cp -R ~/.emacs.d ~/.backupdotfiles/
 cp ~/.tmux.conf ~/.backupdotfiles/
 cp ~/.gitconfig ~/.backupdotfiles/
 cp -R ~/.bazaar ~/.backupdotfiles/
+cp ~/.ssh/config ~/.backupdotfiles/
 
 rm -f ~/.bashrc
 rm -f ~/.bash_logout
@@ -27,6 +28,7 @@ rm -f ~/.emacs.d/init.el
 rm -f ~/.tmux.conf
 rm -f ~/.gitconfig
 rm -rf ~/.bazaar
+rm -f ~/.ssh/config
 
 echo "Symlinking new dot files"
 
@@ -53,6 +55,9 @@ ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
 
 # bazaar
 ln -s $HOME/.dotfiles/bazaar $HOME/.bazaar
+
+# ssh
+ln -s $HOME/.dotfiles/ssh/config $HOME/.ssh/config
 
 # lein
 ln -s $HOME/.dotfiles/lein/user.clj $HOME/.lein/user.clj
