@@ -57,6 +57,7 @@ ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
 ln -s $HOME/.dotfiles/bazaar $HOME/.bazaar
 
 # ssh
+mkdir $HOME/.ssh
 ln -s $HOME/.dotfiles/ssh/config $HOME/.ssh/config
 
 # lein
