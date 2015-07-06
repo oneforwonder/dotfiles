@@ -1,0 +1,4 @@
+Host dib
+    HostName dev.internal.bitmatica.com
+    ServerAliveInterval 120
+
