@@ -17,4 +17,5 @@ aptitude install unison sshfs tmux curl
 aptitude install git subversion bzr mercurial
 aptitude install zlib1g-dev trash-cli
 aptitude install vim exuberant-ctags python-fontforge
+aptitude install python-pip
 aptitude upgrade
