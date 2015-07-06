@@ -46,6 +46,9 @@ Bundle 'rjn945/python.vim'
 " HTML
 Bundle 'HTML-AutoCloseTag'
 
+" Javascript
+Bundle 'scrooloose/syntastic'
+
 " Clojure
 Bundle 'paredit.vim'
 Bundle 'tpope/vim-fireplace'
