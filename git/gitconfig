@@ -16,4 +16,8 @@
   dc = diff --cached
   who = shortlog
   who-count = shortlog -s --
+  last = diff HEAD~1..HEAD
+  discard = checkout --
+  unstage = reset HEAD
   uncommit = reset --mixed HEAD~1
+  anticommit = revert
