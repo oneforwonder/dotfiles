@@ -41,3 +41,4 @@
   unstage = reset HEAD
   uncommit = reset --mixed HEAD~1
   anticommit = revert
+  lg = log --graph --pretty=format:'%C(red bold)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
