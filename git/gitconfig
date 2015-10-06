@@ -2,6 +2,9 @@
 	name = Rob Nagle
 	email = rjn945@gmail.com
 
+[core]
+  autocrlf = false
+
 [color]
   diff = auto
   interactive = auto
