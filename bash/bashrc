@@ -161,7 +161,6 @@ alias ngrokb='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname bit.ngrok.com'
 alias ngrokh='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname'
 alias ngrok='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x'
 
-alias sshdib='ssh dev.internal.bitmatica.com'
 
 #--------------------------------------
 # Environment Variables
@@ -177,6 +176,14 @@ case "$TERM" in
         export TERM=xterm-256color
         ;;
 esac
+
+
+#--------------------------------------
+# NVM
+# -------------------------------------
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 
 #--------------------------------------
