@@ -212,3 +212,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 test -f ~/.dotfiles/git/.git-completion.bash && . $_
 
+
+# -------------------------------------
+# Heroku Toolbelt
+# -------------------------------------
+
+export PATH="/usr/local/heroku/bin:$PATH"
+
