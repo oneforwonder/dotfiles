@@ -161,6 +161,9 @@ alias ngrokb='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname bit.ngrok.com'
 alias ngrokh='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x -hostname'
 alias ngrok='ngrok -authtoken Lc0BZ4kOjgyuIvEF4n0x'
 
+if hash nvim 2>/dev/null; then
+    alias vim="nvim"
+fi
 
 #--------------------------------------
 # Environment Variables
