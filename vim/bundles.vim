@@ -3,56 +3,57 @@
 " Vundle is a tool modeled on Ruby Bundler with the goal of making
 " installing, updating and removing plugins as easy as possible.
 " 
-" This files lists the bundles I want. Then I can run :BundleInstall!
+" This files lists the bundles I want. Then I can run :PluginInstall!
 " to make sure all plugins listed are installed and up-to-date. 
 
 set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " vundle itself
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " essentials
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdcommenter'
 
 " less essential but used
-Bundle 'xolox/vim-reload'
-Bundle 'xolox/vim-misc'
+Plugin 'xolox/vim-reload'
+Plugin 'xolox/vim-misc'
+Plugin 'editorconfig/editorconfig-vim'
 
 " use someday?
-Bundle 'tpope/vim-fugitive'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ShowMarks7'
-Bundle 'YankRing.vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'ervandew/supertab'
-Bundle 'taglist.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'YankRing.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'ervandew/supertab'
+Plugin 'taglist.vim'
 
 " dependency satisifying
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
 
 " Python
-Bundle 'rjn945/python.vim'
+Plugin 'rjn945/python.vim'
 
 " HTML
-Bundle 'HTML-AutoCloseTag'
+Plugin 'HTML-AutoCloseTag'
 
 " Javascript
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Clojure
-Bundle 'paredit.vim'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+Plugin 'paredit.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
 
+call vundle#end()
 filetype plugin indent on
