@@ -82,13 +82,10 @@ set autoindent          " Keep indentation from previous line on new line
 set smarttab            " Tab/backspace by units of shiftwidth at b.o.l.
 set smartindent         " Try to indent after a new block is opened
 
-if has("nvim")
-    set breakindent
+if has("breakindent") || has("nvim")
+  set breakindent
+  let &breakat = " \t;:,.])}>"
 endif
-" set nowrap
-" set textwidth=85
-" set formatoptions=qrn1
-" set colorcolumn=+1
 
 
 " Status line ---------------------------------------------------------------
