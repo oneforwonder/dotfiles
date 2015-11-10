@@ -26,7 +26,7 @@ colorscheme rjn
 
 set encoding=utf-8      " Good default these days
 set hidden              " Allow buffers to be open but not visible
-set visualbell          " Flash, don't beep on broken commands  
+set visualbell          " Flash, don't beep on broken commands
 set shell=/bin/bash
 set wildignore+=*.pyc,.hg,.git
 set matchpairs+=<:>
@@ -62,7 +62,7 @@ set gdefault
 " Use Perl/Python style regex
 noremap / /\v
 "vnoremap / /\v
-" CTRL-n toggles search highlighting 
+" CTRL-n toggles search highlighting
 :map <silent> <C-N> :set invhlsearch<CR>
 
 " Save when losing focus
@@ -139,12 +139,12 @@ set splitright
 noremap S ^
 noremap L $
 
-" Use visible (wrapped) lines not file lines   
+" Use visible (wrapped) lines not file lines
 map k gk
 map j gj
 
 " Make yank consistent with delete and change
-nnoremap Y y$        
+nnoremap Y y$
 
 " Add new line above or below without going into insert mode
 map <S-Enter> O<ESC>
@@ -213,7 +213,7 @@ au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_auto
 
 " NERDTree -------------------------------------------------------------------
 
-map <F3> :NERDTreeToggle<CR>  
+map <F3> :NERDTreeToggle<CR>
 
 
 " Showmarks ------------------------------------------------------------------
