@@ -234,11 +234,10 @@ let g:yankring_history_dir = '~/.vim/tmp/'
 nnoremap <silent> <F11> :YRShow<CR>
 
 
-" Powerline ------------------------------------------------------------------
+" Airline ------------------------------------------------------------------
 
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-let g:Powerline_symbols = 'fancy'
-"python from powerline.bindings.vim import source_plugin; source_plugin()
+let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
 
 
 " CtrlP ----------------------------------------------------------------------

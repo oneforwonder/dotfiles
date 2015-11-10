@@ -17,7 +17,7 @@ Bundle 'gmarik/vundle'
 
 " essentials
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter'
