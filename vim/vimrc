@@ -81,10 +81,11 @@ set expandtab           " Pressing tab inserts spaces
 set autoindent          " Keep indentation from previous line on new line
 set smarttab            " Tab/backspace by units of shiftwidth at b.o.l.
 set smartindent         " Try to indent after a new block is opened
-" set nowrap
-" set textwidth=85
-" set formatoptions=qrn1
-" set colorcolumn=+1
+
+if has("breakindent") || has("nvim")
+  set breakindent
+  let &breakat = " \t;:,.])}>"
+endif
 
 
 " Status line ---------------------------------------------------------------
@@ -242,7 +243,7 @@ let g:airline_powerline_fonts = 1
 
 " CtrlP ----------------------------------------------------------------------
 
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git\|tmp'
 map ,f :CtrlP<CR>
 map ,b :CtrlPBuffer<CR>
 
@@ -252,3 +253,13 @@ map ,b :CtrlPBuffer<CR>
 "
 let g:SuperTabDefaultCompletionType = "context"
 
+
+" Syntastic ------------------------------------------------------------------
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_quiet_messages = {"level": "warnings"}

@@ -1,4 +1,2 @@
-source ~/.venv/base/bin/activate
-
 . ~/.bashrc
 clear
