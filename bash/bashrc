@@ -138,6 +138,7 @@ alias c='clear'
 
 alias ack='clear; ack-grep'
 alias gulp='clear; gulp'
+alias flow='clear; flow'
 
 alias tn='tmux new -s'
 alias ta='tmux attach'
