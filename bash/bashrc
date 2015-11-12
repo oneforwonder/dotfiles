@@ -105,7 +105,7 @@ else
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="[\[$IBlue\]\u\[$Color_Off\]@\[$Green\]\h \[$Yellow\]\w\[$Color_Off\]]$ "
+    PS1="[\[$IBlue\]\u\[$Color_Off\]@\[$Green\]\h \[$IYellow\]\w\[$Color_Off\]]$ "
 else
     PS1='[\u@\h \w\]$ '
 fi
