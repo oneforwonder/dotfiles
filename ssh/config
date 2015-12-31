@@ -1,4 +1,10 @@
 Host dib
     HostName dev.internal.bitmatica.com
+    User rob
+    ServerAliveInterval 120
+
+Host ovi
+    HostName oviedo.cfxnetworks.com
+    User oneforwonder
     ServerAliveInterval 120
 
