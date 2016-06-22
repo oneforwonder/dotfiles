@@ -1,6 +1,4 @@
-
-"
-" By: Robert Nagle <rjn945@gmail.com>
+" By: Robert Nagle <dev@oneforwonder.com>
 "
 " Inspired by:
 " Jonathon McPhearson (http://jmcpherson.org/vimrc.html)
@@ -9,112 +7,131 @@
 " Steve Losh (https://bitbucket.org/sjl/dotfiles/src)
 " Gary Bernhardt (https://github.com/garybernhardt/dotfiles)
 " James Martin (https://github.com/jamesmartin/dotfiles)
+" Tony Narlock (https://github.com/tony/vim-config)
+"
+" To investigate:
+" https://github.com/scrooloose/vimfiles
+" https://github.com/AntJanus/my-dotfiles
 
-" Intro ----------------------------------------------------------------------
-set nocompatible
 
-" Plugins managed by Vundle
+" ------------------------------------------------------------------------------
+" Vim Settings
+" ------------------------------------------------------------------------------
+
+" Plugins by Vundle ------------------------------------------------------------
+
 source ~/.vim/bundles.vim
 
-" Colorscheme ----------------------------------------------------------------
-set t_Co=256
-syntax on
-set background=dark
-colorscheme rjn
 
-" Basic options ---------------------------------------------------------------
+" Colorscheme ------------------------------------------------------------------
 
-set encoding=utf-8      " Good default these days
-set hidden              " Allow buffers to be open but not visible
-set visualbell          " Flash, don't beep on broken commands
-set shell=/bin/bash
-set wildignore+=*.pyc,.hg,.git
-set matchpairs+=<:>
-set pastetoggle=<F2>
+syntax enable          " Enable syntax highlighting
+set t_Co=256           " Use 256 colors
+set background=dark    " Use dark background
+colorscheme darkhorse  " Use my darkhorse colorscheme
 
-" Behavior
-set scrolloff=5           " Keep 5 lines above and below cursor to see context
-set wildmenu              " Show menu of options when using tab-completion
+
+" Basic ------------------------------------------------------------------------
+
+set encoding=utf-8    " Good default these days
+set pastetoggle=<F2>  " Use F2 to toggle paste mode
+
+let mapleader = ","        " Use comma as the leader character
+let maplocalleader = " "   " Use space as the local leader character
+
+" TODO: Resolve missing runtime files and remove this.
+let &runtimepath = &runtimepath . ",/usr/share/vim/vim73/"
+
+
+" Behavior ---------------------------------------------------------------------
+
+set hidden           " Allow buffers to be open but not visible
+set visualbell       " Flash, don't beep on broken commands
+set scrolloff=5      " Keep 5 lines above and below cursor to see context
+set matchpairs+=<:>  " Match < > pairs -- in addition to ( ) { } [ ]
+set iskeyword-=_     " Treat _ as a word separator
+
+" Vim menu tab-completion
+" Tab-complete longest common string and show list of options
+set wildmenu
 set wildmode=list:longest
-set backspace=indent,eol,start
+
+" Insert mode tab-completion
+" Tab-complete longest common string and show list of options (even if only one)
 set completeopt=longest,menuone
-" set cpoptions+=J
-" set virtualedit=all     " Navigate beyond end of line
 
-" Display
-set showcmd             " Show in progress commands in status bar
-set cursorline          " Highlight the line with cursor to make it more visible
-set ruler               " Show line and column number
-set laststatus=2        " Always show status bar
-set showmatch           " Jump to matching paren, brace
-set number
-" 7.3 set relativenumber
-"set showbreak=↪
-set listchars=tab:▸\ ,eol:¬
-set lazyredraw
 
-" Search
-set incsearch           " Search while typing
-set nohls               " Don't hightlight search results
-set ignorecase          " Ignore case when searching...
-set smartcase           " ...unless the search contains a capital letter
-set gdefault
-" Use Perl/Python style regex
+" Display ----------------------------------------------------------------------
+
+set showcmd           " Show in progress commands in status bar
+set cursorline        " Highlight the line with cursor to make it more visible
+set ruler             " Show line and column number
+set laststatus=2      " Always show status bar
+set showmatch         " Jump to matching parenthesis/brace
+set number            " Show line numbers
+set conceallevel=2    " Allow concealed characters to be hidden/replaced
+set lazyredraw        " Don't redraw during macros and other untyped commands
+
+" Display visible representations of some whitespace characters
+" In particular, I want to know when I have tabs or trailing whitespace
+set list
+set listchars=trail:·,tab:▸\
+
+
+" Search -----------------------------------------------------------------------
+
+set incsearch     " Search while typing
+set nohls         " Don't highlight search results
+set ignorecase    " Ignore case when searching...
+set smartcase     " ...unless the search contains a capital letter
+set gdefault      " Substitute all matches, not just the first
+set shortmess+=c  " Disable 'pattern not found' error messages
+
+" Use Perl/Python style regexes
 noremap / /\v
-"vnoremap / /\v
-" CTRL-n toggles search highlighting
-:map <silent> <C-N> :set invhlsearch<CR>
 
-" Save when losing focus
-au FocusLost * :wa
-
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
+" Keep search matches in the middle and unfold as needed
+nnoremap * *zzzv
+nnoremap # #zzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 
-" Tabs, spaces, wrapping -----------------------------------------------------
+" Indentation and Wrapping -----------------------------------------------------
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab           " Pressing tab inserts spaces
-set autoindent          " Keep indentation from previous line on new line
-set smarttab            " Tab/backspace by units of shiftwidth at b.o.l.
-set smartindent         " Try to indent after a new block is opened
+set tabstop=2      " Consider tab to be 2 spaces generally
+set softtabstop=2  " Consider tab to be 2 spaces while editing
+set shiftwidth=2   " Indent in increments of 2 spaces
+set expandtab      " Pressing tab inserts spaces
+set autoindent     " Keep indentation from previous line on new line
+set smarttab       " Tab/backspace by units of shiftwidth at beginning of line
+set smartindent    " Try to indent after a new block is opened
+set textwidth=0    " Don't wrap longs after a certain column
 
+" Visually wrap long lines while maintaining their indentation
 if has("breakindent") || has("nvim")
   set breakindent
   let &breakat = " \t;:,.])}>"
 endif
 
 
-" Status line ---------------------------------------------------------------
+" Backups, Undo, History, Sessions ---------------------------------------------
 
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
-
-
-" Backups, undo, history, sessions ------------------------------------------
-
-set history=1000                  " Remember more commands
-" 7.3 set undofile
-" 7.3 set undoreload=10000
-" set backup                        " enable backups
-" 7.3 set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+set history=1000                 " Remember more commands
+set undofile                     " Persist undo history across sessions
+set undoreload=10000             " Remember lots of undo history
+set undodir=~/.vim/tmp/undo//    " Where to store undo files
+set directory=~/.vim/tmp/swap//  " Where to store swap files
 
 
-" Leader --------------------------------------------------------------------
+" Windows ----------------------------------------------------------------------
 
-let mapleader = ","
-" let maplocalleader = "\\"
+set splitbelow  " Create new splits to bottom
+set splitright  " ...and to the right
 
-
-" Windows --------------------------------------------------------------------
-
-" Vertical split then hop to new buffer
-:noremap <leader>v :vsplit<cr>
-:noremap <leader>h :split<cr>
+" Create vertical/horizontal split, then move to it
+noremap <leader>v :vsplit<cr>
+noremap <leader>h :split<cr>
 
 " Moving around windows more easily
 nnoremap <C-h> <C-w>h
@@ -122,19 +139,41 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" New splits are created to bottom and right
-set splitbelow
-set splitright
+
+" Ignored Files ----------------------------------------------------------------
+
+set wildignore=*~
+set wildignore=*.o,*.obj,*.so
+set wildignore=*.pyc
+set wildignore+=.env
+set wildignore+=.env[0-9]+
+set wildignore+=.env-pypy
+set wildignore+=.git,.gitkeep
+set wildignore+=.tmp
+set wildignore+=.coverage
+set wildignore+=*DS_Store*
+set wildignore+=.sass-cache/
+set wildignore+=__pycache__/
+set wildignore+=.webassets-cache/
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=.tox/**
+set wildignore+=.idea/**
+set wildignore+=.vagrant/**
+set wildignore+=.coverage/**
+set wildignore+=*/.rbenv/**
+set wildignore+=*/.Trash/**
+set wildignore+=*/Library/**
+set wildignore+=*.gem
+set wildignore+=*.egg,*.egg-info
+set wildignore+=*.png,*.jpg,*.jpeg,*.gif
+set wildignore+=*.so,*.swp
+set wildignore+=*.zip,*.tar,*.gz,*.tgz
 
 
-" Folding --------------------------------------------------------------------
-" set foldmethod=indent
-" set foldnestmax=10
-" set nofoldenable
-" set foldlevel=1
-
-
-" Key Mappings ---------------------------------------------------------------
+" Key Mappings -----------------------------------------------------------------
 
 " Go to start and end of line more easily
 noremap S ^
@@ -151,17 +190,8 @@ nnoremap Y y$
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
-" Toggle invisible chars
-nnoremap <leader>it :set list!<CR>
-
 " Reindent file
 nnoremap <leader>if gg=G''
-
-" Keep search matches in the middle and unfold as needed
-nnoremap * *zzzv
-nnoremap # #zzzv
-nnoremap n nzzzv
-nnoremap N Nzzzv
 
 " Put 'move-right' on the Dvorak home row
 map s l
@@ -169,97 +199,172 @@ map s l
 " Dvorak for jj, makes getting out of insert easy
 imap hh <Esc>
 
-" Easily change current directory
-map ,cd :cd %:p:h<CR>
-
 " Replace all instances of selected string
 vnoremap <C-r> "hy:%s/<C-r>h//cg<left><left><left>
 
+" Copy selected text to system clipboard.
+vmap <leader>yc "*y
 
-" Python --------------------------------------------------------------------
+" Fill to end of life with dashes -- useful for comments
+map <leader>- A<space><ESC>80A-<ESC>^80lD
+
+
+" ------------------------------------------------------------------------------
+" Language Settings
+" ------------------------------------------------------------------------------
+
+" Javascript -------------------------------------------------------------------
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_quiet_messages = {"level": "warnings"}
+
+" Sort imports by filename
+map <leader>si :sort /".*"/ r<CR>
+
+
+" Python -----------------------------------------------------------------------
+
+" Standard indentation in Python is 4 spaces
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal tabstop=4
 
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python call SetupPythonAndDjango()
 
+" Clojure ----------------------------------------------------------------------
 
-" Clojure --------------------------------------------------------------------
+autocmd Filetype clojure nnoremap <buffer> <leader>ee :Eval<CR>
+autocmd Filetype clojure nnoremap <buffer> <leader>eb :%Eval<CR>
 
 let g:paredit_mode = 1
 
-nnoremap <leader>ee :Eval<CR>
-nnoremap <leader>eb :%Eval<CR>
+
+" Vimscript -------------------------------------------------------------------
+
+" Keybindings to exec the current selection/current line.
+autocmd Filetype vim vmap <buffer> <leader>e "xy:@x<CR>
+autocmd Filetype vim nmap <buffer> <leader>e V"xy:@x<CR>
 
 
-" Ruby -----------------------------------------------------------------------
+" Markdown --------------------------------------------------------------------
 
-autocmd FileType ruby set shiftwidth=2
-autocmd FileType ruby set softtabstop=2
-autocmd FileType ruby set tabstop=2
+" Use 'Pythonic' folding -- fold on header, not first line of content
+let g:vim_markdown_folding_style_pythonic = 1
 
-
-" HTML -----------------------------------------------------------------------
-
-autocmd FileType html set shiftwidth=2
-autocmd FileType html set softtabstop=2
-autocmd FileType html set tabstop=2
+" Reduce initial Markdown folding level
+let g:vim_markdown_folding_level = 6
 
 
-" HTML AutoCloseTag ----------------------------------------------------------
 
-au FileType html,xhtml,xml so ~/.vim/bundle/HTML-AutoCloseTag/ftplugin/html_autoclosetag.vim
+" ------------------------------------------------------------------------------
+" Plugin Settings
+" ------------------------------------------------------------------------------
 
+" CtrlP ------------------------------------------------------------------------
 
-" NERDTree -------------------------------------------------------------------
+" In addition to wildignore, CtrlP should ignore libraries and builds.
+let g:ctrlp_custom_ignore = {
+\'dir':  'bundle\|bower_components\|node_modules\|dist\|build',
+\}
 
-map <F3> :NERDTreeToggle<CR>
-
-
-" Showmarks ------------------------------------------------------------------
-
-let g:showmarks_textlower="\t"
-let g:showmarks_textupper="\t"
-let g:showmarks_textother="\t"
-
-hi ShowMarksHLl guifg=#FF5454 guibg=#121212 gui=bold ctermfg=9  ctermbg=233 cterm=bold
-hi ShowMarksHLu guifg=#005FFF guibg=#121212 gui=bold ctermfg=27 ctermbg=233 cterm=bold
-hi ShowMarksHLo guifg=#00AF5F guibg=#121212 gui=bold ctermfg=35 ctermbg=233 cterm=bold
-hi ShowMarksHLm guifg=#875FFF guibg=#121212 gui=bold ctermfg=99 ctermbg=233 cterm=bold
+map <leader>f :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
 
 
-" YankRing -------------------------------------------------------------------
-
-let g:yankring_history_dir = '~/.vim/tmp/'
-nnoremap <silent> <F11> :YRShow<CR>
-
-
-" Airline ------------------------------------------------------------------
+" Airline ----------------------------------------------------------------------
 
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 
-" CtrlP ----------------------------------------------------------------------
+" Abolish ----------------------------------------------------------------------
 
-let g:ctrlp_custom_ignore = 'bower_components\|node_modules\|DS_Store\|git\|tmp'
-map ,f :CtrlP<CR>
-map ,b :CtrlPBuffer<CR>
+" Abolish coercion is great, but I forget the keys often so I added this.
+map cr? :help abolish-coercion<CR>
 
-
-
-" SuperTab -------------------------------------------------------------------
-"
-let g:SuperTabDefaultCompletionType = "context"
+" PascalCase is another name for MixedCase.
+map crp crm
 
 
-" Syntastic ------------------------------------------------------------------
+" YouCompleteMe  ---------------------------------------------------------------
+
+
+
+" Ultisnips --------------------------------------------------------------------
+
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+"let g:UltiSnipsSnippetDirectories=["~/.vim/snippets"]
+"let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
+
+
+" vim-session ------------------------------------------------------------------
+
+let g:loaded_session = 1
+
+" I like all commands for a plugin to begin with the same prefix.
+let g:session_command_aliases = 1
+
+let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
+
+
+" Startify  --------------------------------------------------------------------
+
+" Automatically save to CWD on exit, then load this file on startup
+let g:startify_session_persistence = 1
+let g:startify_session_autoload = 1
+let g:startify_session_dir = '~/.vim/sessions'
+
+
+" YankStack --------------------------------------------------------------------
+
+nmap <leader>ys :Yanks<CR>
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+
+" NERDTree ---------------------------------------------------------------------
+
+" Toggle NERDTree with ,tn (mnemonic: toggle nerdtree)
+nmap <leader>tn :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeToggle<CR>
+
+
+" Tagbar -----------------------------------------------------------------------
+
+let g:tagbar_sort = 0    " Initially sort by file order not alphabetical
+let g:tagbar_left = 1    " Open Tagbar on the left
+let g:tagbar_width = 32  " Make Tagbar window slightly narrower
+let g:tagbar_indent = 1  " Make Tagbar indent slightly smaller
+
+" Toggle whether Tagbar is open
+nmap <leader>tbt :TagbarToggle<CR>
+
+" Open Tagbar (if not already open) and jump to it
+nmap <leader>tbj :TagbarOpen fj<CR>
+
+
+" AutoPairs --------------------------------------------------------------------
+
+" Toggle whether AutoPairs is is active
+nmap <leader>apt :call AutoPairsToggle()<CR>
+
+
+" LocalVimrc -------------------------------------------------------------------
+
+let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 0
+
+
+" Syntastic --------------------------------------------------------------------
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_quiet_messages = {"level": "warnings"}

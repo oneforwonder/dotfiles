@@ -1,0 +1,360 @@
+# ------------------------------------------------------------------------------
+# Variables (var, let, const)
+# ------------------------------------------------------------------------------
+
+snippet v "var" b
+var ${1:name} = ${2:value};
+endsnippet
+
+snippet l "let" b
+let ${1:name} = ${2:value};
+endsnippet
+
+snippet c "const" b
+const ${1:name} = ${2:value};
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Flow Control
+# ------------------------------------------------------------------------------
+
+snippet if "if" b
+if (${1:condition}) {
+	${0}
+}
+endsnippet
+
+snippet ife "if else" b
+if (${1:condition}) {
+	${2}
+} else {
+	${0}
+}
+endsnippet
+
+snippet ? "ternary"
+${1:condition} ? ${2:then} : ${0:else}
+endsnippet
+
+snippet switch "switch" b
+switch (${1:expression}) {
+	case '${3:case}':
+		${4}
+		break;
+	${0}
+	default:
+		${2}
+}
+endsnippet
+
+# case
+snippet case "case" b
+case '${1:case}':
+	${2}
+	break;
+${0}
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Exceptions
+# ------------------------------------------------------------------------------
+
+snippet try "try catch" b
+try {
+	${1}
+} catch (${2:e}) {
+	${0:/* handle error */}
+}
+endsnippet
+
+snippet tryf "try finally" b
+try {
+	${1}
+} catch (${2:e}) {
+	${3:/* handle error */}
+} finally {
+	${VISUAL}$0
+}
+endsnippet
+
+# throw Error
+snippet throw "throw Error" b
+throw new Error('${1:error message}')
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Functions and Methods
+# ------------------------------------------------------------------------------
+
+snippet fn "function"
+function ${1:name}(${2:args}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet meth "method"
+${1:name}(${2:args}) {
+	${VISUAL}$0
+},
+
+endsnippet
+
+snippet metho "method override"
+${1:name}(${2:args}) {
+	${3:Base}.prototype.$1.apply(this, arguments); 
+	${VISUAL}$0
+},
+
+endsnippet
+
+snippet af1 "arrow function (one line)"
+(${1:args}) => ${VISUAL}$0
+endsnippet
+
+snippet afm "arrow function (multi line)"
+(${1:args}) => {
+	${VISUAL}$0
+}
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Classes
+# ------------------------------------------------------------------------------
+
+snippet cls "Class" b
+class ${1:Class} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet clsx "Class extends" b
+class ${1:Class} extends ${2:Base} {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet cons "constructor" b
+constructor(${1:args}) {
+	super($1);
+	${VISUAL}$0
+}
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Modules
+# ------------------------------------------------------------------------------
+
+snippet im "import" b
+import ${1:name} from '${2:module}';
+endsnippet
+
+snippet ex "export" b
+export ${0:value};
+endsnippet
+
+snippet exd "export default" b
+export default ${0:value};
+endsnippet
+
+snippet exc "export const" b
+export const ${1:name} = ${2:value};
+endsnippet
+
+snippet exfn "export function" b
+export function ${1:name}(${2:args}) {
+	${VISUAL}$0
+}
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Timeout & Intervals
+# ------------------------------------------------------------------------------
+
+snippet timeout "set timeout"
+setTimeout(() => { ${1:body} }, ${2:1000});
+endsnippet
+
+snippet timeoutc "clear timeout"
+clearTimeout(${1:timeout_id});
+endsnippet
+
+snippet interval "set interval"
+setInterval(${1:fn_name}, ${2:1000});
+endsnippet
+
+snippet intervalc "clear interval"
+clearInterval(${1:interval_id});
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# JSON
+# ------------------------------------------------------------------------------
+
+snippet jsonp "JSON parse"
+	JSON.parse(${0:jstr});
+endsnippet
+
+snippet jsons "JSON stringify"
+	JSON.stringify(${0:object});
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# DOM
+# ------------------------------------------------------------------------------
+
+snippet qs "query selector"
+	${1:document}.querySelector('${0:CSS selector}')
+endsnippet
+
+snippet qsa "query selector all"
+	${1:document}.querySelectorAll('${0:CSS selector}')
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Console
+# ------------------------------------------------------------------------------
+
+# Logging
+snippet cl "console.log" b
+console.log(${1:${VISUAL:'${2:value}'}});
+endsnippet
+
+snippet cdir "console.dir" b
+console.dir(${1:object});
+endsnippet
+
+snippet cdirx "console.dirxml" b
+console.dirxml(${1:object});
+endsnippet
+
+snippet ctable "console.table" b
+console.table(${1:'${2:value}'});
+endsnippet
+
+snippet ctrace "console.trace" b
+console.trace();
+endsnippet
+
+snippet ca "console.assert" b
+console.assert(${1:assertion}, ${2:'${3:message}'});
+endsnippet
+
+snippet ccount "console.count" b
+console.count(${1:'${2:value}'});
+endsnippet
+
+snippet cclear "console.clear" b
+console.clear();
+endsnippet
+
+snippet cstyle "console.log styled" b
+console.log('%c${1:value}', '${2:style}'});
+endsnippet
+
+
+# Log levels
+snippet cd "console.debug" b
+console.debug(${1:'${2:value}'});
+endsnippet
+
+snippet ci "console.info" b
+console.info(${1:'${2:value}'});
+endsnippet
+
+snippet cw "console.warn" b
+console.warn(${1:'${2:value}'});
+endsnippet
+
+snippet ce "console.error" b
+console.error(${1:'${2:value}'});
+endsnippet
+
+
+# Groups
+snippet cgroup "console.group" b
+console.group('${1:label}');
+${VISUAL}$0
+console.groupEnd();
+endsnippet
+
+snippet cgroupc "console.groupCollapsed" b
+console.groupCollapsed('${1:label}');
+${VISUAL}$0
+console.groupEnd();
+endsnippet
+
+
+# Timing/Profiling
+snippet cprof "console.profile" b
+console.profile('${1:label}');
+${VISUAL}$0
+console.profileEnd();
+endsnippet
+
+snippet ctime "console.time" b
+console.time('${1:label}');
+${VISUAL}$0
+console.timeEnd('$1');
+endsnippet
+
+snippet ctimestamp "console.timeStamp" b
+console.timeStamp('${1:label}');
+endsnippet
+
+
+# ------------------------------------------------------------------------------
+# Common Libraries
+# ------------------------------------------------------------------------------
+
+snippet imp_ "import lodash" b
+import ${1:_} from 'lodash';
+endsnippet
+
+snippet imp$ "import jquery" b
+import ${1:$} from 'jquery';
+endsnippet
+
+snippet impr "import React" b
+import React from 'React';
+endsnippet
+
+snippet imprd "import React DOM" b
+import ReactDOM from 'ReactDOM';
+endsnippet
+
+
+# Ampersand
+snippet impAmpA "import Ampersand App" b
+import ${1:App} from 'ampersand-app';
+endsnippet
+
+snippet impAmpR "import Ampersand Router" b
+import AmpersandRouter from 'ampersand-router';
+endsnippet
+
+snippet impAmpM "import Ampersand Model" b
+import AmpersandModel from 'ampersand-model';
+endsnippet
+
+snippet impAmpC "import Ampersand Rest Collection" b
+import AmpersandRestCollection from 'ampersand-collection';
+endsnippet
+
+snippet impAmpE "import Ampersand Events" b
+import AmpersandEvents from 'ampersand-events';
+endsnippet
+
+snippet impAmpRM "import Ampersand React Mixin" b
+import ampersandReactMixin from 'ampersand-react-mixin';
+endsnippet
+
+# vim:ft=snippets:
