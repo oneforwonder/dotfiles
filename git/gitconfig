@@ -17,14 +17,14 @@
   remote = green
 
 [color "diff"]
-  meta = yellow bold
+  meta = white bold
   frag = magenta bold
   old = red bold
   new = green bold
 
 [color "status"]
-  added = yellow
-  changed = green
+  added = green
+  changed = magenta bold
   untracked = cyan
 
 
