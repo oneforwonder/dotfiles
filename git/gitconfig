@@ -1,6 +1,6 @@
 [user]
-	name = Rob Nagle
-	email = rob@bitmatica.com
+  name = Rob Nagle
+  email = rob@bitmatica.com
 
 [core]
   autocrlf = false
