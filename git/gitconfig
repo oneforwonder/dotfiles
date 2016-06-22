@@ -6,6 +6,9 @@
   autocrlf = false
   excludesFile = ~/.gitignore_global
 
+[push]
+  default = simple
+
 [color]
   diff = auto
   interactive = auto
