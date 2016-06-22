@@ -123,11 +123,13 @@ alias la='ls -AG'
 alias l='ls -G'
 
 alias c='clear'
+alias C='clear; $(history -p !!)'
 
 alias ag='clear; ag'
 alias ack='clear; ack-grep'
 alias gulp='clear; gulp'
 alias flow='clear; flow'
+alias cnpm='clear; npm'
 
 alias tn='tmux new -s'
 alias ta='tmux attach'
@@ -142,6 +144,8 @@ alias gd="clear; git diff; git status"
 alias gdc="clear; git diff --cached; git status"
 alias gca="git commit -a"
 alias gpp="git pull; git push"
+alias gl="clear; git sl"
+alias gr="clear; git slr"
 
 alias be='bundle exec'
 
