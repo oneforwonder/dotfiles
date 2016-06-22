@@ -52,6 +52,7 @@ ln -s $HOME/.dotfiles/tmux/tmux.conf $HOME/.tmux.conf
 
 # git
 ln -s $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig
+ln -s $HOME/.dotfiles/git/ignore $HOME/.gitignore_global
 
 # bazaar
 ln -s $HOME/.dotfiles/bazaar $HOME/.bazaar
