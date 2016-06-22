@@ -166,7 +166,12 @@ fi
 # Environment Variables
 # -------------------------------------
 
-export EDITOR=/usr/bin/vim
+if hash nvim 2>/dev/null; then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
+
 export PATH=$PATH:$HOME/.bin
 
 case "$TERM" in
