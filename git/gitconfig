@@ -6,6 +6,12 @@
   autocrlf = false
   excludesFile = ~/.gitignore_global
 
+[diff]
+  # Better aligns diff hunks to intended changes
+  # See: https://github.com/blog/2188-git-2-9-has-been-released in Beautiful diffs
+  # Note: the setting name was changed since that blog post was written.
+  indentHeuristic = on
+
 [merge]
   # When resolving merge conflicts show your side, their side, AND common ancestor
   conflictstyle = diff3
