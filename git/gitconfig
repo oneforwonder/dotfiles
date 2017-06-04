@@ -6,6 +6,16 @@
   autocrlf = false
   excludesFile = ~/.gitignore_global
 
+[merge]
+  # When resolving merge conflicts show your side, their side, AND common ancestor
+  conflictstyle = diff3
+
+[rerere]
+  # Reuse recorded resolution, so if you resolve a merge conflict once then
+  # later perform a merge that causes the same conflict, git will remember how
+  # you resolved it last time and reuse that resolution.
+  enabled = 1
+
 [push]
   default = simple
 
