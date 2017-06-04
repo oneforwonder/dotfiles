@@ -50,9 +50,12 @@
   who = shortlog
   who-count = shortlog -s --
 
+  # Compare local branch to upstream and list commits unique to each
+  upstream = log HEAD...@{upstream} --left-right --graph
+
   # Various log outputs
   # Log graph
-  lg = log --graph --pretty=format:'%C(yellow bold)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+  graph = log --graph --pretty=format:'%C(yellow bold)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
 
   # Log pretty one line format
   sl = log --pretty=format:'%C(yellow bold)%h%Creset %Cgreen(%cr)%Creset %s %C(blue bold)[%an]%Creset' --no-merges
