@@ -1,4 +1,7 @@
 vim/bundle/*
-vim/tmp/*
-vim/sessions/*
+vim/files/info/*
+vim/files/swap/*
+vim/files/undo/*
+vim/files/sessions/*
 backup/*
+!.gitkeep

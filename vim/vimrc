@@ -117,11 +117,13 @@ endif
 
 " Backups, Undo, History, Sessions ---------------------------------------------
 
-set history=1000                 " Remember more commands
-set undofile                     " Persist undo history across sessions
-set undoreload=10000             " Remember lots of undo history
-set undodir=~/.vim/tmp/undo//    " Where to store undo files
-set directory=~/.vim/tmp/swap//  " Where to store swap files
+set history=1000                  " Remember more commands
+set undofile                      " Persist undo history across sessions
+set undoreload=10000              " Remember lots of undo history
+set undodir=~/.vim/files/undo//   " Where to store undo files
+set directory=~/.vim/files/swap// " Where to store swap files
+" Where and how much viminfo (command/search history, marks, etc) to store
+set viminfo='100,n~/.vim/files/info/viminfo
 
 
 " Windows ----------------------------------------------------------------------
@@ -322,7 +324,7 @@ let g:session_autoload = 'no'
 " Automatically save to CWD on exit, then load this file on startup
 let g:startify_session_persistence = 1
 let g:startify_session_autoload = 1
-let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_session_dir = '~/.vim/files/sessions'
 
 
 " YankStack --------------------------------------------------------------------
