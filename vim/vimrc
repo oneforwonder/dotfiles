@@ -190,6 +190,9 @@ nnoremap Y y$
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
+" Allow ctrl-s to save like it does in most modern apps.
+map <C-s> :w<CR>
+
 " Reindent file
 nnoremap <leader>if gg=G''
 
