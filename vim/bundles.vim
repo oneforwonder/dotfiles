@@ -23,7 +23,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Style the statusline with Powerline symbols
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Case-intelligence for substitution, coercion, and abbreviations
 Plugin 'tpope/vim-abolish'
