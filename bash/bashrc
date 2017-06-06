@@ -158,9 +158,6 @@ if hash trash-put 2>/dev/null; then
     alias trash='trash-put'
 fi
 
-if hash nvim 2>/dev/null; then
-    alias vim="nvim"
-fi
 
 #--------------------------------------
 # Environment Variables
