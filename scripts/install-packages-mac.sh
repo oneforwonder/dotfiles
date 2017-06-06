@@ -1,66 +1,79 @@
 # Get OS X developer tools
-echo xcode-select --install
+xcode-select --install
 
 # First install Homebrew, our macOS package manager
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
 
-echo brew install cask
+# Install and set up virtualenv
+if command_exists brew ; then
+  echo "Homebrew already installed. Upgrading packages"
+  brew upgrade
+else
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
-echo brew tap caskroom/fonts
-echo brew tap caskroom/versions
+
+# Homebrew Cask lets us install macOS applications
+brew install cask
+
+# Add some formula repos
+brew tap caskroom/fonts
+brew tap caskroom/versions
 
 # Text editors
-echo brew install vim
-echo brew install neovim/neovim/neovim
-echo brew cask install bbedit
-echo brew cask install atom
-echo brew cask install atom-beta
+brew install vim
+brew install neovim/neovim/neovim
+brew cask install bbedit
+brew cask install atom
+brew cask install atom-beta
 
 # Web browsers
-echo brew cask install google-chrome
-echo brew cask install firefox
-echo brew cask install torbrowser
+brew cask install google-chrome
+brew cask install firefox
+brew cask install torbrowser
 
 # File sync
-echo brew cask install google-drive
-echo brew cask install dropbox
+brew cask install google-drive
+brew cask install dropbox
 
 # Bittorrent client
-echo brew cask install transmission
+brew cask install transmission
 
 # Development
-echo brew install git
-echo brew install yarn
+brew install git
+brew install yarn
 
 # Media
-echo brew cask install vlc
+brew cask install vlc
 
 # Virtual machines
-echo brew cask install virtualbox
+brew cask install virtualbox
 
 # Customization
-echo brew cask install karabiner
-echo brew cask install seil
-echo brew cask install totalspaces
-echo brew cask install contexts
-echo brew cask install sizeup
+brew cask install karabiner
+brew cask install seil
+brew cask install totalspaces
+brew cask install contexts
+brew cask install sizeup
 
 # Terminal and command line programs
-echo brew cask install iterm2
-echo brew install coreutils
-echo brew install findutils
-echo brew install tmux
-echo brew install trash
-echo brew install the_silver_searcher
+brew cask install iterm2
+brew install coreutils
+brew install findutils
+brew install tmux
+brew install trash
+brew install the_silver_searcher
 
 # Various utilities
-echo brew cask install alfred
-echo brew cask install the-unarchiver
-echo brew cask install itsycal
-echo brew cask install sip
-echo brew cask install flux
-echo brew cask install skitch
+brew cask install alfred
+brew cask install the-unarchiver
+brew cask install itsycal
+brew cask install sip
+brew cask install flux
+brew cask install skitch
 
 # Fonts
-echo brew cask install font-fira-code
-
+brew cask install font-fira-code
