@@ -54,4 +54,4 @@
     description: Running Vundle to install Vim bundles
   -
     command: "nvim -u $HOME/.vim/bundles.vim +BundleInstall +qall"
-    description: Running Vundle to install Vim bundles
+    description: Running Vundle to install Neovim bundles
