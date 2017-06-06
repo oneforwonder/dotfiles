@@ -1,13 +1,21 @@
 - defaults:
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
     link:
       relink: true
 
 - shell:
-  - ["git submodule update --init --recursive", Installing submodules]
-  - [./scripts/backup-dotfiles.sh, Backing up existing dotfiles to ~/.dotfiles/backup]
-
-  # Make necessary dotfile directories
-  - mkdir ~/.ssh
+  -
+    command: "git submodule update --init --recursive"
+    description: Installing submodules
+  -
+    command: ./scripts/backup-dotfiles.sh
+    description: Backing up existing dotfiles to ~/.dotfiles/backup
+  -
+    command: mkdir -p ~/.config ~/.ssh
+    description: Make necessary dotfile directories
 
 - clean: ['~']
 
@@ -32,6 +40,15 @@
     ~/.gitignore_global: git/ignore
 
 - shell:
-  - [./scripts/install-packages.sh, Installing packages]
-  - ["git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle", Install Vim Vundle]
-  - ["vim -u $HOME/.vim/bundles.vim +BundleInstall +qall", Running Vundle to install Vim bundles]
+  -
+    command: ./scripts/install-packages.sh
+    description: Installing packages
+  -
+    command: "git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle"
+    description: Install Vim Vundle
+  -
+    command: "vim -u $HOME/.vim/bundles.vim +BundleInstall +qall"
+    description: Running Vundle to install Vim bundles
+  -
+    command: "nvim -u $HOME/.vim/bundles.vim +BundleInstall +qall"
+    description: Running Vundle to install Vim bundles
