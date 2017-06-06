@@ -39,13 +39,16 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/ignore
 
+    # mackup
+    ~/.mackup.cfg: mackup/.mackup.cfg
+
 - shell:
   -
     command: ./scripts/install-packages.sh
     description: Installing packages
   -
-    command: "git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle"
-    description: Install Vim Vundle
+    command: mackup restore
+    description: Restore Map app settings from mackup backup
   -
     command: "vim -u $HOME/.vim/bundles.vim +BundleInstall +qall"
     description: Running Vundle to install Vim bundles
