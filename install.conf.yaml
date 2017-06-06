@@ -21,6 +21,9 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
 
+    # neovim
+    ~/.config/neovim: vim
+
     # tmux
     ~/.tmux.conf: tmux/tmux.conf
 
