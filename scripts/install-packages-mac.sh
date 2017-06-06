@@ -10,6 +10,7 @@ echo brew tap caskroom/fonts
 echo brew tap caskroom/versions
 
 # Text editors
+echo brew install vim
 echo brew install neovim/neovim/neovim
 echo brew cask install bbedit
 echo brew cask install atom
@@ -28,6 +29,7 @@ echo brew cask install dropbox
 echo brew cask install transmission
 
 # Development
+echo brew install git
 echo brew install yarn
 
 # Media
