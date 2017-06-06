@@ -1,0 +1,34 @@
+- defaults:
+    link:
+      relink: true
+
+- shell:
+  - ["git submodule update --init --recursive", Installing submodules]
+  - [./scripts/backup-dotfiles.sh, Backing up existing dotfiles to ~/.dotfiles/backup]
+
+  # Make necessary dotfile directories
+  - mkdir ~/.ssh
+
+- clean: ['~']
+
+- link:
+    # bash
+    ~/.bashrc: bash/bashrc
+    ~/.bash_profile: bash/bash_profile
+    ~/.bash_logout: bash/bash_logout
+
+    # vim
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+
+    # tmux
+    ~/.tmux.conf: tmux/tmux.conf
+
+    # git
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/ignore
+
+- shell:
+  - [./scripts/install-packages.sh, Installing packages]
+  - ["git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle", Install Vim Vundle]
+  - ["vim -u $HOME/.vim/bundles.vim +BundleInstall +qall", Running Vundle to install Vim bundles]
