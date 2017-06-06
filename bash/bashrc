@@ -117,10 +117,17 @@ unset color_prompt force_color_prompt
 # Aliases
 # -------------------------------------
 
-alias ls='ls -G'
-alias ll='ls -alhFG'
-alias la='ls -AG'
-alias l='ls -G'
+if hash gls 2>/dev/null; then
+  alias l='gls --color -h -G --group-directories-first'
+  alias ls='gls --color -h -G --group-directories-first'
+  alias ll='gls --color -h -G --group-directories-first -a -l -F'
+  alias la='gls --color -h -G --group-directories-first -a'
+else
+  alias l='ls --color -h -G --group-directories-first'
+  alias ls='ls --color -h -G --group-directories-first'
+  alias ll='ls --color -h -G --group-directories-first -a -l -F'
+  alias la='ls --color -h -G --group-directories-first -a'
+fi
 
 alias c='clear'
 alias C='clear; $(history -p !!)'
