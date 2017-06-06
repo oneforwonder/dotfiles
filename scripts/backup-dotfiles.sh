@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir ~/.dotfiles/backup
+mkdir -p ~/.dotfiles/backup
 
 cp ~/.bashrc ~/.dotfiles/backup/
 cp ~/.bash_login ~/.dotfiles/backup/
