@@ -122,8 +122,13 @@ set undofile                      " Persist undo history across sessions
 set undoreload=10000              " Remember lots of undo history
 set undodir=~/.vim/files/undo//   " Where to store undo files
 set directory=~/.vim/files/swap// " Where to store swap files
+
 " Where and how much viminfo (command/search history, marks, etc) to store
-set viminfo='100,n~/.vim/files/info/viminfo
+if !has("nvim")
+  " Neovim has issues when the n flag is used to set a custom viminfo filename
+  " See https://github.com/neovim/neovim/issues/3469
+  set viminfo='100,n~/.vim/files/info/viminfo
+endif
 
 
 " Windows ----------------------------------------------------------------------
