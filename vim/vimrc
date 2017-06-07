@@ -109,7 +109,7 @@ set smartindent    " Try to indent after a new block is opened
 set textwidth=0    " Don't wrap longs after a certain column
 
 " Visually wrap long lines while maintaining their indentation
-if has("breakindent") || has("nvim")
+if has("linebreak") || has("nvim")
   set breakindent
   let &breakat = " \t;:,.])}>"
 endif
