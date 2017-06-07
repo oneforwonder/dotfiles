@@ -4,4 +4,5 @@ vim/files/swap/*
 vim/files/undo/*
 vim/files/sessions/*
 backup/*
+mackup/Library/Application Support/ClipMenu/clips.data
 !.gitkeep
