@@ -1,0 +1,61 @@
+"*":
+  "atom-ctags":
+    cmdArgs: "--exclude=node_modules"
+  "autocomplete-plus":
+    confirmCompletion: "enter"
+    includeCompletionsFromAllBuffers: false
+  "console-log":
+    identifierCase: true
+  core:
+    disabledPackages: [
+      "language-gfm"
+      "symbols-tree-view"
+      "symbols-view"
+      "tabs"
+      "language-javascript-jsx"
+      "terminal-plus"
+      "atom-shortcuts"
+      "git-plus"
+      "atom-ctags"
+    ]
+    telemetryConsent: "limited"
+  "custom-title":
+    template: "Atom | <% if (projectName) { %><%= projectName %> |<% } %> <%= fileName %>"
+  editor:
+    fontSize: 12
+    lineHeight: 1.4
+    preferredLineLength: 100
+    softWrap: true
+  "exception-reporting":
+    userId: "16861449-83e6-4e20-b73d-a9e233cb48ef"
+  "find-and-replace":
+    scrollToResultOnLiveSearch: true
+  "git-blame":
+    ignoreWhiteSpaceDiffs: true
+  "keybinding-cheatsheet": {}
+  "linter-ui-default":
+    panelRepresents: "Entire Project"
+  minimap:
+    adjustAbsoluteModeHeight: true
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
+  "vim-mode-plus":
+    automaticallyEscapeInsertModeOnActivePaneItemChange: true
+    incrementalSearch: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
