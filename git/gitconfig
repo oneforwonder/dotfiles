@@ -66,6 +66,8 @@
   who = shortlog
   who-count = shortlog -s --
 
+  unique = log --left-right --graph
+
   # Compare local branch to upstream and list commits unique to each
   upstream = log HEAD...@{upstream} --left-right --graph
 
