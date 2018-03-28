@@ -1,28 +1,39 @@
 "*":
   "atom-ctags":
     cmdArgs: "--exclude=node_modules"
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics-ui": "never"
   "autocomplete-plus":
     confirmCompletion: "enter"
     includeCompletionsFromAllBuffers: false
+    strictMatching: true
   "console-log":
     identifierCase: true
   core:
+    audioBeep: false
+    closeDeletedFileTabs: true
     disabledPackages: [
       "language-gfm"
       "symbols-tree-view"
       "symbols-view"
-      "tabs"
       "language-javascript-jsx"
-      "terminal-plus"
       "atom-shortcuts"
       "git-plus"
       "atom-ctags"
+      "terminal-plus"
+      "ide-typescript"
+      "atom-alignment"
+      "tabs"
+      "zentabs"
     ]
     telemetryConsent: "limited"
+    titleBar: "hidden"
   "custom-title":
     template: "Atom | <% if (projectName) { %><%= projectName %> |<% } %> <%= fileName %>"
   editor:
-    fontSize: 12
+    fontFamily: "FiraCode-Retina"
+    fontSize: 11
     lineHeight: 1.4
     preferredLineLength: 100
     softWrap: true
@@ -31,11 +42,15 @@
   "find-and-replace":
     scrollToResultOnLiveSearch: true
   "git-blame":
+    columnWidth: 299
     ignoreWhiteSpaceDiffs: true
   "keybinding-cheatsheet": {}
   "linter-ui-default":
     panelRepresents: "Entire Project"
+  "markdown-preview-enhanced":
+    previewTheme: "night.css"
   minimap:
+    absoluteMode: true
     adjustAbsoluteModeHeight: true
     plugins:
       cursorline: true
@@ -46,6 +61,8 @@
       "highlight-selectedDecorationsZIndex": 0
       selection: true
       selectionDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
   "spell-check": {}
   "split-diff":
     diffWords: true
@@ -53,9 +70,13 @@
     leftEditorColor: "red"
     rightEditorColor: "green"
     scrollSyncType: "Vertical + Horizontal"
+  "trailing-spaces": {}
   "vim-mode-plus":
     automaticallyEscapeInsertModeOnActivePaneItemChange: true
     incrementalSearch: true
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
+  zentabs:
+    maximumOpenedTabs: 1
+    neverCloseUnsaved: true

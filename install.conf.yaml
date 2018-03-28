@@ -62,3 +62,6 @@
   -
     command: "nvim -u $HOME/.vim/bundles.vim +BundleInstall +qall"
     description: Running Vundle to install Neovim bundles
+  -
+    command: "apm login && apm starred --install"
+    description: Installing starred Atom packages
