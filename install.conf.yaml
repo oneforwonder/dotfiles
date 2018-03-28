@@ -49,6 +49,9 @@
     # mackup
     ~/.mackup.cfg: mackup/.mackup.cfg
 
+    # bin directory
+    ~/.bin: bin
+
 - shell:
   -
     command: ./scripts/install-packages.sh
