@@ -1,34 +1,185 @@
 <?xml version="1.0"?>
 <root>
   <modifierdef>SPACE_MODIFIER</modifierdef>
+  <modifierdef>CODE</modifierdef>
+
+  <devicevendordef>
+    <vendorname>KINESIS</vendorname>
+    <vendorid>0x05f3</vendorid>
+  </devicevendordef>
+
+  <deviceproductdef>
+    <productname>ADVANTAGE</productname>
+    <productid>0x0007</productid>
+  </deviceproductdef>
+
 
   <item>
-      <name>Space as global modifier</name>
-      <appendix>* When tapped, space key send space</appendix>
-      <appendix>* When held, space key acts as my Mac "global modifier" combo (ctrl+cmd+option)</appendix>
-      <appendix>* When space key and another key overlap, and space is released first, send space</appendix>
-      <appendix></appendix>
-      <appendix>For example:</appendix>
-      <appendix><![CDATA[  <Space> down, <Space> up => Space  ]]></appendix>
-      <appendix><![CDATA[  <Space> down, <T> down, <T> up => Ctrl+Cmd+Option+T  ]]></appendix>
-      <appendix><![CDATA[  <Space> down, <T> down, <Space> up => Space, T  ]]></appendix>
-      <appendix></appendix>
-      <appendix>Based on the sample SandS 2 script which maintains space key behavior while fast typing.</appendix>
-      <appendix>See:</appendix>
-      <appendix>https://github.com/tekezo/Karabiner/blob/master/src/core/server/Resources/include/checkbox/standards/space.xml</appendix>
-      <identifier>private.space-global</identifier>
-      <autogen>
-        __KeyOverlaidModifier__
-        KeyCode::SPACE,
+    <name>Space as global modifier</name>
+    <appendix>* When tapped, space key send space</appendix>
+    <appendix>* When held, space key acts as my Mac "global modifier" combo (ctrl+cmd+option)</appendix>
+    <appendix>* When space key and another key overlap, and space is released first, send space</appendix>
+    <appendix></appendix>
+    <appendix>For example:</appendix>
+    <appendix><![CDATA[  <Space> down, <Space> up => Space  ]]></appendix>
+    <appendix><![CDATA[  <Space> down, <T> down, <T> up => Ctrl+Cmd+Option+T  ]]></appendix>
+    <appendix><![CDATA[  <Space> down, <T> down, <Space> up => Space, T  ]]></appendix>
+    <appendix></appendix>
+    <appendix>Based on the sample SandS 2 script which maintains space key behavior while fast typing.</appendix>
+    <appendix>See:</appendix>
+    <appendix>https://github.com/tekezo/Karabiner/blob/master/src/core/server/Resources/include/checkbox/standards/space.xml</appendix>
+    <identifier>private.space-global</identifier>
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::SPACE,
+      KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SPACE_MODIFIER,
+      KeyCode::SPACE,
+    </autogen>
 
-        KeyCode::COMMAND_L, ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L | ModifierFlag::SPACE_MODIFIER,
+    <block>
+      <modifier_only>ModifierFlag::SPACE_MODIFIER</modifier_only>
+      <autogen>__BlockUntilKeyUp__ KeyCode::SPACE</autogen>
+    </block>
+  </item>
 
-        KeyCode::SPACE,
-      </autogen>
 
-      <block>
-        <modifier_only>ModifierFlag::SPACE_MODIFIER</modifier_only>
-        <autogen>__BlockUntilKeyUp__ KeyCode::SPACE</autogen>
-      </block>
+  <item>
+    <name>Kinesis Code Keys (Keyboard Dvorak / OS Qwerty)</name>
+    <appendix>To make common code characters easier to type on the Kinesis</appendix>
+    <appendix>End key is "Code Modifier"</appendix>
+    <appendix>"Code Modifier" + home row = ( ) + = { } [ ]</appendix>
+    <identifier>private.kinesis-code-kbd-dvo</identifier>
+    <device_only>DeviceVendor::KINESIS,DeviceProduct::ADVANTAGE</device_only>
+
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::END,
+      KeyCode::VK_MODIFIER_CODE,
+      KeyCode::END
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::A, ModifierFlag::CODE,
+      KeyCode::KEY_9, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::O, ModifierFlag::CODE,
+      KeyCode::KEY_0, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::E, ModifierFlag::CODE,
+      KeyCode::EQUAL, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::U, ModifierFlag::CODE,
+      KeyCode::EQUAL,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::CODE,
+      KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::T, ModifierFlag::CODE,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::N, ModifierFlag::CODE,
+      KeyCode::BRACKET_LEFT,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::S, ModifierFlag::CODE,
+      KeyCode::BRACKET_RIGHT,
+    </autogen>
+  </item>
+
+
+  <item>
+    <name>Kinesis Code Keys (Keyboard Qwerty / OS Dvorak)</name>
+    <appendix>To make common code characters easier to type on the Kinesis</appendix>
+    <appendix>End key is "Code Modifier"</appendix>
+    <appendix>"Code Modifier" + home row = ( ) + = { } [ ]</appendix>
+    <identifier>private.kinesis-code-kbd-qwe</identifier>
+    <device_only>DeviceVendor::KINESIS,DeviceProduct::ADVANTAGE</device_only>
+
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::END,
+      KeyCode::VK_MODIFIER_CODE,
+      KeyCode::END
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::A, ModifierFlag::CODE,
+      KeyCode::KEY_9, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::S, ModifierFlag::CODE,
+      KeyCode::KEY_0, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::D, ModifierFlag::CODE,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::F, ModifierFlag::CODE,
+      KeyCode::BRACKET_RIGHT,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::CODE,
+      KeyCode::MINUS, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::CODE,
+      KeyCode::EQUAL, ModifierFlag::SHIFT_R
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::L, ModifierFlag::CODE,
+      KeyCode::MINUS,
+    </autogen>
+
+    <autogen>
+      __KeyToKey__
+      KeyCode::SEMICOLON, ModifierFlag::CODE,
+      KeyCode::EQUAL,
+    </autogen>
+  </item>
+  
+  <item>
+    <name>Sleep key combo</name>
+    <appendix>Map command+F9 to sleep key combo (control+shift+power)</appendix>
+    <identifier>private.sleep</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::F9, ModifierFlag::COMMAND_L,
+      KeyCode::VK_CONSUMERKEY_EJECT, ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L
+    </autogen>
   </item>
 </root>
