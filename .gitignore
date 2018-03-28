@@ -1,4 +1,5 @@
 vim/bundle/*
+vim/tmp/*
 vim/files/info/*
 vim/files/swap/*
 vim/files/undo/*
