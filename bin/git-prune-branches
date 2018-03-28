@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+branches = `git branch`
+branches.each_line do |s|
+    print "Remove #{s.strip}? "
+    resp = gets
+    if resp.start_with?('y')
+        `git branch -D #{s.strip}`
+    end
+end
