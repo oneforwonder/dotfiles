@@ -49,6 +49,9 @@
     # mackup
     ~/.mackup.cfg: mackup/.mackup.cfg
 
+    # karabiner
+    ~/.config/karabiner: karabiner
+
     # bin directory
     ~/.bin: bin
 

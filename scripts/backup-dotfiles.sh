@@ -18,4 +18,4 @@ cp ~/.gitconfig ~/.dotfiles/backup/
 cp ~/.gitignore_global ~/.dotfiles/backup/
 cp ~/.ssh/config ~/.dotfiles/backup/sshconfig
 cp ~/.mackup.cfg ~/.dotfiles/backup/
-
+cp -R ~/.config/karabiner ~/.dotfiles/backup/
