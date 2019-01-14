@@ -64,12 +64,17 @@
   "cmd-t r": "platformio-ide-terminal:rename"
   "cmd-t x": "platformio-ide-terminal:close"
 
-
-# Editor only
 "atom-text-editor.vim-mode-plus:not(.insert-mode)":
   "space c": "editor:toggle-line-comments"
   ", c": "editor:toggle-line-comments"
 
+  "space t": "toggler:toggle"
+  ", t": "toggler:toggle"
+
+
+#-------------------------------------------------------------------------------
+# Overriding some vim-mode keybindings
+#-------------------------------------------------------------------------------
 
 "atom-text-editor.vim-mode-plus-input-char-waiting":
   ":": "vim-mode-plus:set-input-char-:"
@@ -84,7 +89,6 @@
 "atom-text-editor.vim-mode-plus.normal-mode":
   "enter": "vim-mode-plus:add-blank-line-below"
   "shift-enter": "vim-mode-plus:add-blank-line-above"
-
 
 # Overriding this very specific vim-mode-plus selector til I find a better way.
 ".platform-darwin atom-text-editor.vim-mode-plus:not(.insert-mode)":
