@@ -15,11 +15,67 @@
                 },
                 "rules": [
                     {
-                        "description": "Change spacebar to 'Global Modifier' (command+control+option) if pressed with other keys (Post spacebar when pressed alone)",
+                        "description": "(Non-Kinesis-only) Change spacebar to 'Global Modifier' (command+control+option) if pressed with other keys (Post spacebar when pressed alone)",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kinesis Advantage",
+                                                "product_id": 7,
+                                                "vendor_id": 1523
+                                            }
+                                        ],
+                                        "type": "device_unless"
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "spacebar",
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "lazy": true,
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "(Kinesis-only) Change delete to 'Global Modifier' (command+control+option) if pressed with other keys (Post spacebar when pressed alone)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kinesis Advantage",
+                                                "product_id": 7,
+                                                "vendor_id": 1523
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "delete_forward",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -47,9 +103,21 @@
                         ]
                     },
                     {
-                        "description": "Change end to 'Code Modifier' (command+control+shift) if pressed with other keys (Post end when pressed alone)",
+                        "description": "(Kinesis-only) Change end to 'Code Modifier' (command+control+shift) if pressed with other keys (Post end when pressed alone)",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kinesis Advantage",
+                                                "product_id": 7,
+                                                "vendor_id": 1523
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "end",
                                     "modifiers": {
@@ -380,7 +448,9 @@
                 }
             ],
             "virtual_hid_keyboard": {
-                "country_code": 0
+                "caps_lock_delay_milliseconds": 0,
+                "country_code": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
