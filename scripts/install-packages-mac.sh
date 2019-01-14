@@ -48,6 +48,7 @@ brew install yarn
 
 # Media
 brew cask install vlc
+brew cask install spotify
 
 # Virtual machines
 brew cask install virtualbox
@@ -73,6 +74,7 @@ brew cask install sip
 brew cask install flux
 brew cask install skitch
 brew cask install postman
+brew cask install lastpass
 
 # Fonts
 brew cask install font-fira-code
