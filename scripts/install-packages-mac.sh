@@ -53,8 +53,7 @@ brew cask install vlc
 brew cask install virtualbox
 
 # Customization
-brew cask install karabiner
-brew cask install seil
+brew cask install karabiner-elements
 brew cask install totalspaces
 brew cask install contexts
 brew cask install sizeup
