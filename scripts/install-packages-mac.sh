@@ -55,7 +55,6 @@ brew cask install virtualbox
 # Customization
 brew cask install karabiner-elements
 brew cask install totalspaces
-brew cask install contexts
 brew cask install sizeup
 
 # Terminal and command line programs
@@ -73,6 +72,7 @@ brew cask install itsycal
 brew cask install sip
 brew cask install flux
 brew cask install skitch
+brew cask install postman
 
 # Fonts
 brew cask install font-fira-code
