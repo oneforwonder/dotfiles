@@ -63,6 +63,11 @@
       selectionDecorationsZIndex: 0
       "split-diff": true
       "split-diffDecorationsZIndex": 0
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNoConfigFile: true
+      isDisabledIfNotInPackageJson: true
   "spell-check": {}
   "split-diff":
     diffWords: true
