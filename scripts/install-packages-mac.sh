@@ -23,6 +23,9 @@ brew install cask
 brew tap caskroom/fonts
 brew tap caskroom/versions
 
+# Mackup (we'll need it for the next install step)
+brew install mackup
+
 # Text editors
 brew install vim
 brew install neovim/neovim/neovim
