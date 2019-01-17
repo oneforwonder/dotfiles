@@ -39,7 +39,7 @@ brew cask install firefox
 brew cask install torbrowser
 
 # File sync
-brew cask install google-drive
+brew cask install google-backup-and-sync
 brew cask install dropbox
 
 # Bittorrent client
@@ -60,6 +60,7 @@ brew cask install virtualbox
 brew cask install karabiner-elements
 brew cask install totalspaces
 brew cask install sizeup
+brew cask install witch
 
 # Terminal and command line programs
 brew cask install iterm2
@@ -78,6 +79,7 @@ brew cask install flux
 brew cask install skitch
 brew cask install postman
 brew cask install lastpass
+brew cask install dynalist
 
 # Fonts
 brew cask install font-fira-code
