@@ -1,9 +1,9 @@
-Set up Firefox
+### Set up Firefox ###
 Log in to sync
 Install extensions: Adblock Plus, Greasemonkey, Pentadactyl, Tree Style Tabs
 
 
-Fix Dolphin
+### Fix Dolphin ###
 Show menubar
 Make places sidebar bigger
 Check Editable location bar
@@ -15,34 +15,34 @@ Some of these changes are stored in ~/.kde/share/apps/Dolphin/dolphinui.rc
 Others are stored in ~/.kde/share/config/dolphinrc
 
 
-Fix KDE appearance
+### Fix KDE appearance ###
 Download Aya and Elegance destkop themes
 Use Aya overall and Elegance for task items
 Change the window decoration to Plastik
 The change the title bar buttons
 
 
-Set up pager
+### Set up pager ###
 4 desktops (Now, Dev1, Dev2, Alt) in 2x2 grid
 Show icons
 
 
-Set up panel
+### Set up panel ###
 Launcher, pager, taskbar, system tray, time
 
 
-Configure taskbar
+### Configure taskbar ###
 Only show windows from current desktop
 Maximum rows: 1
 
 
-Set up keyboard
+### Set up keyboard ###
 Add US keyboard layout
 Hide system tray icon
 Use Caps Lock as extra Control key
 
 
-Set up KDE shortcuts
+### Set up KDE shortcuts ###
 All start with Ctrl-Shift
 KRunner:           R
 Previous Desktop:  H
@@ -54,25 +54,26 @@ Maximize Window:   X
 Minimize Window:   M
 
 
-Set up Konsole shortcuts
+### Set up Konsole shortcuts ###
 Remove key shortcuts that conflict with KWin bindings
 Make sure font used in Deja Vu Sans Mono
 
 
-Set up KMenu
+### Set up KMenu ###
 Favorites: Firefox, Chrome, Writer, Kate, Dolphin, Konsole, Amarok, Adept, System Settings
 Organize folders
 
 
-Configure Konsole
+### Configure Konsole ###
 No menubar or scrollbars
 No window border
 Stored in ~/.kde/share/config/kwinrulesrc
 
 
-Configure Kate
+### Configure Kate ###
 Use vim keybindings
 Do not save local ~ file backups
 
 
+### Graphics ###
 Install graphics drivers through Additional Drivers, if necessary
