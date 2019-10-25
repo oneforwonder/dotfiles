@@ -15,7 +15,7 @@
                 },
                 "rules": [
                     {
-                        "description": "(Non-Kinesis-only) Change spacebar to 'Global Modifier' (command+control+option) if pressed with other keys (Post spacebar when pressed alone)",
+                        "description": "(Non-Kinesis-only) Change caps_lock to 'Global Modifier' (command+control+option) if pressed with other keys (Post caps_lock when pressed alone)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -50,7 +50,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "left_control",
+                                        "key_code": "caps_lock",
                                         "lazy": true
                                     }
                                 ],
@@ -59,7 +59,7 @@
                         ]
                     },
                     {
-                        "description": "(Kinesis-only) Change delete to 'Global Modifier' (command+control+option) if pressed with other keys (Post spacebar when pressed alone)",
+                        "description": "(Kinesis-only) Change delete to 'Global Modifier' (command+control+option) if pressed with other keys (Post delete when pressed alone)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -94,7 +94,47 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
+                                        "key_code": "delete_forward",
+                                        "lazy": true
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "(Kinesis-only) Change caps_lock to control if pressed with other keys (Post caps_lock when pressed alone)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Kinesis Advantage",
+                                                "product_id": 7,
+                                                "vendor_id": 1523
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "caps_lock",
                                         "lazy": true
                                     }
                                 ],
@@ -437,16 +477,7 @@
             ],
             "name": "Default profile",
             "selected": true,
-            "simple_modifications": [
-                {
-                    "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "to": {
-                        "key_code": "left_control"
-                    }
-                }
-            ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
