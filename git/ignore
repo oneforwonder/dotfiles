@@ -45,6 +45,7 @@ Thumbs.db
 
 # My Workflow #
 ###############
+*.code-workspace
 Session.vim
 .Session.vim
 .lvimrc
@@ -52,3 +53,4 @@ __LAST__
 MYDO
 MYDO.md
 **/scratch/**
+**/.scratch/**
