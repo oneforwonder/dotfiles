@@ -81,6 +81,7 @@ brew cask install skitch
 brew cask install postman
 brew cask install lastpass
 brew cask install dynalist
+brew cask install honer
 
 # Fonts
 brew cask install font-fira-code
