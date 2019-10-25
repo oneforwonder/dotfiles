@@ -69,6 +69,7 @@ brew install findutils
 brew install tmux
 brew install trash
 brew install the_silver_searcher
+brew install thefuck
 
 # Various utilities
 brew cask install alfred

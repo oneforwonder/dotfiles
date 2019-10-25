@@ -232,3 +232,11 @@ test -f ~/.dotfiles/git/.git-completion.bash && . $_
 # -------------------------------------
 
 export PATH="/usr/local/heroku/bin:$PATH"
+
+
+# -------------------------------------
+# thefuck
+# -------------------------------------
+
+eval $(thefuck --alias f)
+
