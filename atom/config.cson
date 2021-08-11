@@ -26,6 +26,7 @@
       "atom-alignment"
       "tabs"
       "zentabs"
+      "markdown-preview"
     ]
     telemetryConsent: "limited"
     titleBar: "hidden"
@@ -47,6 +48,7 @@
   "keybinding-cheatsheet": {}
   "linter-ui-default":
     panelRepresents: "Entire Project"
+    showPanel: true
   "markdown-preview-enhanced":
     previewTheme: "night.css"
   minimap:
