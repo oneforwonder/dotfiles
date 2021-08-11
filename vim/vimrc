@@ -267,6 +267,11 @@ let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_folding_level = 6
 
 
+" Crontab ---------------------------------------------------------------------
+
+" Needed on MacOS to prevent 'temp file must be edited in place' error
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 
 " ------------------------------------------------------------------------------
 " Plugin Settings
