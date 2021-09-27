@@ -1,0 +1,20 @@
+{
+  "vimMode": true,
+  "promptDelete": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "spellcheck": true,
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "spellcheckDictionary": [
+    "Dynalist",
+    "Journaling",
+    "shoulds",
+    "journaling",
+    "customizability",
+    "Remnote",
+    "IntelliJ",
+    "Mouseless",
+    "journaling"
+  ]
+}
