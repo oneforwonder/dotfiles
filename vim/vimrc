@@ -139,6 +139,7 @@ set splitright  " ...and to the right
 " Create vertical/horizontal split, then move to it
 noremap <leader>v :vsplit<cr>
 noremap <leader>h :split<cr>
+noremap <leader>n <C-w><C-w>
 
 " Moving around windows more easily
 nnoremap <C-h> <C-w>h
