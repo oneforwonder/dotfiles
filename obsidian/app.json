@@ -15,6 +15,17 @@
     "Remnote",
     "IntelliJ",
     "Mouseless",
-    "journaling"
-  ]
+    "journaling",
+    "backend",
+    "repo",
+    "frontend",
+    "prerelease",
+    "Frontend",
+    "dev",
+    "Dev",
+    "Backend",
+    "dataframe"
+  ],
+  "livePreview": false,
+  "readableLineLength": true
 }
