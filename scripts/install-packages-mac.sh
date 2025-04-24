@@ -6,13 +6,13 @@ command_exists () {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Install and set up virtualenv
+# Install and set up brew
 if command_exists brew ; then
   echo "Homebrew already installed. Upgrading packages"
   brew upgrade
 else
   echo "Installing homebrew..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 
@@ -29,9 +29,7 @@ brew install mackup
 # Text editors
 brew install vim
 brew install neovim/neovim/neovim
-brew cask install bbedit
-brew cask install atom
-brew cask install atom-beta
+brew cask install visual-studio-code
 
 # Web browsers
 brew cask install google-chrome
@@ -39,15 +37,10 @@ brew cask install firefox
 brew cask install torbrowser
 
 # File sync
-brew cask install google-backup-and-sync
-brew cask install dropbox
+brew cask install google-drive
 
 # Bittorrent client
 brew cask install transmission
-
-# Development
-brew install git
-brew install yarn
 
 # Media
 brew cask install vlc
@@ -58,7 +51,6 @@ brew cask install virtualbox
 
 # Customization
 brew cask install karabiner-elements
-brew cask install totalspaces
 brew cask install sizeup
 brew cask install witch
 
@@ -75,13 +67,9 @@ brew install thefuck
 brew cask install alfred
 brew cask install the-unarchiver
 brew cask install itsycal
-brew cask install sip
 brew cask install flux
-brew cask install skitch
 brew cask install postman
-brew cask install lastpass
-brew cask install dynalist
-brew cask install honer
+brew cask install 1password
 
 # Fonts
 brew cask install font-fira-code
