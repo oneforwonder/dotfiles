@@ -1,83 +1,100 @@
 [user]
-	name = Rob Nagle
-	email = rob@bitmatica.com
+  name = Rob Nagle
+  email = rob.nagle@creditkarma.com
 
 [core]
-	autocrlf = false
-	excludesFile = ~/.gitignore_global
+  autocrlf = false
+  excludesFile = ~/.gitignore_global
 
 [diff]
-	# Better aligns diff hunks to intended changes
-	# See: https://github.com/blog/2188-git-2-9-has-been-released in Beautiful diffs
-	# Note: the setting name was changed since that blog post was written.
-	indentHeuristic = on
-	algorithm = histogram
+  # Better aligns diff hunks to intended changes
+  # See: https://github.com/blog/2188-git-2-9-has-been-released in Beautiful diffs
+  # Note: the setting name was changed since that blog post was written.
+  indentHeuristic = on
+  algorithm = histogram
 
 [merge]
-	# When resolving merge conflicts show your side, their side, AND common ancestor
-	conflictstyle = diff3
+  # When resolving merge conflicts show your side, their side, AND common ancestor
+  conflictstyle = diff3
 
 [rerere]
-	# Reuse recorded resolution, so if you resolve a merge conflict once then
-	# later perform a merge that causes the same conflict, git will remember how
-	# you resolved it last time and reuse that resolution.
-	enabled = 1
+  # Reuse recorded resolution, so if you resolve a merge conflict once then
+  # later perform a merge that causes the same conflict, git will remember how
+  # you resolved it last time and reuse that resolution.
+  enabled = 1
 
 [push]
+  default = current
+	autoSetupRemote = true
+
+[pull]
+  ff = only
 	default = current
 
+[branch]
+	autoSetupMerge = always
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = /usr/local/bin/gpg
+
 [color]
-	diff = auto
-	interactive = auto
-	status = auto
+  diff = auto
+  interactive = auto
+  status = auto
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-	meta = white bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = white bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-	added = green
-	changed = magenta bold
-	untracked = cyan
+  added = green
+  changed = magenta bold
+  untracked = cyan
 
 [alias]
-	# Shorthand for common commands
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
-	dc = diff --cached
+  # Shorthand for common commands
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
 
-	# More memorable names for these slightly complicated commands
-	discard = checkout --
-	unstage = reset HEAD
-	uncommit = reset --mixed HEAD~1
-	anticommit = revert
-	last = diff HEAD~1..HEAD
+  # More memorable names for these slightly complicated commands
+  discard = checkout --
+  unstage = reset HEAD
+  uncommit = reset --mixed HEAD~1
+  anticommit = revert
+  last = diff HEAD~1..HEAD
 
-	# See who has done what
-	who = shortlog
-	who-count = shortlog -s --
+  # See who has done what
+  who = shortlog
+  who-count = shortlog -s --
 
-	unique = log --left-right --graph
+  unique = log --left-right --graph
 
-	# Compare local branch to upstream and list commits unique to each
-	upstream = log HEAD...@{upstream} --left-right --graph
+  # Compare local branch to upstream and list commits unique to each
+  upstream = log HEAD...@{upstream} --left-right --graph
 
-	# Various log outputs
-	# Log graph
-	graph = log --graph --pretty=format:'%C(yellow bold)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+  # Various log outputs
+  # Log graph
+  graph = log --graph --pretty=format:'%C(yellow bold)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
 
-	# Log pretty one line format
-	sl = log --pretty=format:'%C(yellow bold)%h%Creset %Cgreen(%cr)%Creset %s %C(blue bold)[%an]%Creset' --no-merges
+  # Log pretty one line format
+  sl = log --pretty=format:'%C(yellow bold)%h%Creset %Cgreen(%cr)%Creset %s %C(blue bold)[%an]%Creset' --no-merges
 
-	# Log recent commits (last 30) in pretty one line format
-	slr = log --pretty=format:'%C(yellow bold)%h%Creset %Cgreen(%cr)%Creset %s %C(blue bold)[%an]%Creset' --no-merges -n 30
+  # Log recent commits (last 30) in pretty one line format
+  slr = log --pretty=format:'%C(yellow bold)%h%Creset %Cgreen(%cr)%Creset %s %C(blue bold)[%an]%Creset' --no-merges -n 30
+
+  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+  off-main = !git checkout $(git main-branch) && git pull origin $(git main-branch) && git checkout -b
