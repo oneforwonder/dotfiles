@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/rob/.oh-my-zsh"
+export ZSH="/Users/rob.nagle/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -182,12 +182,33 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 #--------------------------------------
 # AVN
 # -------------------------------------
 
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+#[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 
 #--------------------------------------
@@ -198,11 +219,13 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # -------------------------------------
-# Virtualenv
+# Pyenv
 # -------------------------------------
 
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s "$HOME/.venv/base/bin/activate" ]] && source "$HOME/.venv/base/bin/activate"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 
 # -------------------------------------
@@ -210,4 +233,32 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # -------------------------------------
 
 eval $(thefuck --alias f)
+
+
+# -------------------------------------
+# Google cloud
+# -------------------------------------
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rob.nagle/Code/Tools/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rob.nagle/Code/Tools/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rob.nagle/Code/Tools/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rob.nagle/Code/Tools/google-cloud-sdk/completion.zsh.inc'; fi
+
+export CLOUDSDK_PYTHON=python3.9
+
+
+# -------------------------------------
+# Java
+# -------------------------------------
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xmx8G -Xms4G -Xss128m"
+
+
+# -------------------------------------
+# GPG
+# -------------------------------------
+
+export GPG_TTY=$(tty)
 
