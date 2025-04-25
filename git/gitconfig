@@ -1,6 +1,7 @@
 [user]
   name = Rob Nagle
   email = rob.nagle@creditkarma.com
+	signingkey = A24027E8214DB9B5
 
 [core]
   autocrlf = false
