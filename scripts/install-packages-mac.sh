@@ -27,35 +27,35 @@ brew tap caskroom/versions
 brew install mackup
 
 # Text editors
-brew install vim
-brew install neovim/neovim/neovim
-brew cask install visual-studio-code
+# brew install vim
+brew install neovim
+# brew cask install visual-studio-code
 
 # Web browsers
-brew cask install google-chrome
-brew cask install firefox
-brew cask install torbrowser
+# brew cask install google-chrome
+# brew cask install firefox
+# brew cask install torbrowser
 
 # File sync
-brew cask install google-drive
+# brew cask install google-drive
 
 # Bittorrent client
-brew cask install transmission
+# brew cask install transmission
 
 # Media
-brew cask install vlc
-brew cask install spotify
+# brew cask install vlc
+# brew cask install spotify
 
 # Virtual machines
-brew cask install virtualbox
+# brew cask install virtualbox
 
 # Customization
 brew cask install karabiner-elements
-brew cask install sizeup
+# brew cask install sizeup
 brew cask install witch
 
 # Terminal and command line programs
-brew cask install iterm2
+# brew cask install iterm2
 brew install coreutils
 brew install findutils
 brew install tmux
@@ -65,11 +65,11 @@ brew install thefuck
 
 # Various utilities
 brew cask install alfred
-brew cask install the-unarchiver
-brew cask install itsycal
+# brew cask install the-unarchiver
+# brew cask install itsycal
 brew cask install flux
-brew cask install postman
-brew cask install 1password
+# brew cask install postman
+# brew cask install 1password
 
 # Fonts
 brew cask install font-fira-code
